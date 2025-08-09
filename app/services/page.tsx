@@ -1,9 +1,10 @@
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
+import { Card, CardContent, CardHeader } from '../components/ui/Card';
 import { CheckCircle2, Code2, Network, Home } from 'lucide-react';
 import { AnimatedSection } from '../components/ui/AnimatedSection';
-import { CtaSection } from '../components/sections/CtaSection'; // Importando a CTA
+import { CtaSection } from '../components/sections/CtaSection';
+import { H1, H2, H3, P, Lead } from '../components/ui/Typography';
 
 const services = [
     {
@@ -46,18 +47,17 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div>
+    <div className="bg-light-bg dark:bg-dark">
       <Navbar />
       <main className="pt-16">
         <AnimatedSection className="w-full py-20 lg:py-24">
           <div className="container mx-auto max-w-4xl text-center px-4">
-            {/* Refinamento de tipografia */}
-            <h1 className="text-4xl md:text-5xl font-light leading-tight text-shadow-lg tracking-wide">
+            <H1 className="font-light tracking-wide text-shadow-lg dark:text-shadow-none">
               Soluções de Tecnologia para Desafios Reais
-            </h1>
-            <p className="text-lg md:text-xl text-light/80 mt-4">
+            </H1>
+            <Lead className="mt-4">
               Descubra como podemos ajudar a sua empresa a inovar ou a sua casa a tornar-se mais inteligente.
-            </p>
+            </Lead>
           </div>
         </AnimatedSection>
 
@@ -67,24 +67,24 @@ export default function ServicesPage() {
               <div className="container mx-auto max-w-5xl px-4 py-16">
                 <div className="text-center mb-12">
                   <service.icon className="h-12 w-12 text-accent mx-auto mb-4" />
-                  <h2 className="text-3xl font-bold text-primary tracking-wider">{service.headline}</h2>
+                  <H2 className="text-primary dark:text-primary">{service.headline}</H2>
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                  <div className="space-y-4 text-light/80">
-                    <h3 className="text-2xl font-semibold text-light">{service.title}</h3>
-                    <p>{service.description}</p>
+                  <div className="space-y-4">
+                    <H3>{service.title}</H3>
+                    <P>{service.description}</P>
                   </div>
                   <div>
-                    <Card className="transition-all duration-300 ease-in-out hover:shadow-2xl hover:shadow-accent/20">
+                    <Card>
                       <CardHeader>
-                        <CardTitle>O que está incluído:</CardTitle>
+                        <H3>O que está incluído:</H3>
                       </CardHeader>
                       <CardContent>
                         <ul className="space-y-3">
                           {service.includes.map((item) => (
                             <li key={item} className="flex items-center gap-3">
                               <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0" />
-                              <span className="text-light/90">{item}</span>
+                              <span className="text-light-text dark:text-light/90">{item}</span>
                             </li>
                           ))}
                         </ul>
@@ -96,8 +96,6 @@ export default function ServicesPage() {
             </AnimatedSection>
           ))}
         </div>
-
-        {/* Adicionando a CTA global antes do rodapé */}
         <AnimatedSection>
             <CtaSection />
         </AnimatedSection>
