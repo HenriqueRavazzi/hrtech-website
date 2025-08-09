@@ -34,7 +34,7 @@ const services = [
         icon: Home,
         title: "Automação Residencial Inteligente",
         headline: "Imagine uma casa que trabalha para si.",
-        description: "A verdadeira automação vai além de ligar uma luz pelo telemóvel. Trata-se de criar um ecossistema inteligente que se antecipa às suas necessidades. Imagine chegar a casa e a 'Cena Cinema' ser ativada com um toque: as luzes diminuem, as cortinas fecham e a climatização ajusta-se. Imagine sair para viajar e ter a certeza de que a sua casa está segura e a consumir o mínimo de energia. Nós projetamos e implementamos essa realidade, transformando a sua casa num ambiente conectado, seguro e eficiente.",
+        description: "A verdadeira automação vai além de ligar uma luz pelo telemóvel. Trata-se de criar um ecossistema inteligente que se antecipa às suas necessidades. Imagine chegar em casa e a 'Cena Cinema' ser ativada com um toque: as luzes diminuem, as cortinas fecham e a climatização ajusta-se. Imagine sair para viajar e ter a certeza de que a sua casa está segura e a consumir o mínimo de energia. Nós projetamos e implementamos essa realidade, transformando a sua casa num ambiente conectado, seguro e eficiente.",
         includes: [
           "Projetos de Iluminação Inteligente",
           "Controlo de Climatização e Cortinas",
