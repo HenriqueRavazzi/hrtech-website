@@ -2,6 +2,7 @@ import type { Config } from "tailwindcss";
 import textShadow from 'tailwindcss-textshadow';
 
 const config: Config = {
+  darkMode: "class", 
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,11 +11,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#5E17EB", // Roxo
-        accent: "#00F5D4",  // Ciano Vibrante
+        primary: "#5E17EB", 
+        accent: "#00F5D4",  
         dark: "#121212",
         light: "#FFFFFF",
-        secondary: '#F3F4F6',
+        // Adicionando cores para o modo claro
+        "light-bg": "#F9FAFB",
+        "light-text": "#1F2937",
       },
       fontFamily: {
         sans: ["var(--font-league-spartan)", "sans-serif"],
