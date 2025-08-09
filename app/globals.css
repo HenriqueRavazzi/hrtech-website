@@ -24,10 +24,13 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
 @layer base {
   body {
     background-color: #f8fafc;
     color: #171717;
+    transition-property: background-color, color;
+    transition-duration: 300ms;
   }
   
   .dark body {
