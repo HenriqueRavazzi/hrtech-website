@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { League_Spartan } from "next/font/google"; // Importando a fonte
+import { League_Spartan } from "next/font/google";
 import "./globals.css";
 
-// Configuração da fonte
 const leagueSpartan = League_Spartan({
   subsets: ["latin"],
-  weight: ["400", "700"], // Carregando pesos regular e bold
-  variable: "--font-league-spartan", // Definindo uma variável CSS
+  weight: ["400", "700"],
+  variable: "--font-league-spartan",
 });
 
 export const metadata: Metadata = {
@@ -21,8 +20,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      {/* Aplicando a classe da fonte na tag body */}
-      <body className={`${leagueSpartan.variable} font-sans`}>
+      {/* Aplicando a classe da fonte e o novo fundo animado */}
+      <body className={`${leagueSpartan.variable} font-sans animated-gradient text-light`}>
         {children}
       </body>
     </html>
