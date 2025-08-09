@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${leagueSpartan.variable} font-sans animated-gradient`}>
+      <body className={`${leagueSpartan.variable} font-sans animated-gradient text-light`}>
         {children}
         <TooltipProvider />
       </body>
