@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { League_Spartan } from "next/font/google";
 import "./globals.css";
 import { TooltipProvider } from "./components/ui/TooltipProvider";
+import { ThemeProvider } from "./components/ThemeProvider";
 
 const leagueSpartan = League_Spartan({
   subsets: ["latin"],
@@ -20,10 +21,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <body className={`${leagueSpartan.variable} font-sans animated-gradient text-light`}>
-        {children}
-        <TooltipProvider />
+    <html lang="pt-BR" suppressHydrationWarning>
+      <body 
+        className={`${leagueSpartan.variable} font-sans bg-light-bg dark:bg-dark transition-colors duration-300`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          <TooltipProvider />
+        </ThemeProvider>
       </body>
     </html>
   );
