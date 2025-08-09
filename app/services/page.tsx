@@ -60,7 +60,7 @@ export default function ServicesPage() {
         </AnimatedSection>
 
         <div className="py-10">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <AnimatedSection key={service.title} className="w-full">
               <div className="container mx-auto max-w-5xl px-4 py-16">
                 <div className="text-center mb-12">
