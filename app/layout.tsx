@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { League_Spartan } from "next/font/google";
 import "./globals.css";
-// CORRIGIDO: Usando uma importação nomeada com chavetas e o caminho correto
 import { TooltipProvider } from "./components/ui/TooltipProvider";
 
 const leagueSpartan = League_Spartan({
@@ -22,9 +21,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${leagueSpartan.variable} font-sans animated-gradient text-light`}>
+      <body className={`${leagueSpartan.variable} font-sans animated-gradient`}>
         {children}
-        {/* Adicionando o provedor de Tooltip para que funcione globalmente */}
         <TooltipProvider />
       </body>
     </html>
