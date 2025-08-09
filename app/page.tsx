@@ -21,7 +21,6 @@ export default function HomePage() {
           <AboutSection />
         </AnimatedSection>
 
-        {/* Adicionando a CTA global antes do rodapé */}
         <AnimatedSection>
           <CtaSection />
         </AnimatedSection>
