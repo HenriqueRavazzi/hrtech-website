@@ -1,9 +1,10 @@
-import Image from 'next/image'; // Importando o componente de Imagem do Next.js
+// Removida a importação do 'Image' daqui
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
 import { BrainCircuit, HeartHandshake, Shield } from 'lucide-react';
 import { AnimatedSection } from '../components/ui/AnimatedSection';
+import { ProfileImage } from '../components/ui/ProfileImage'; // Importando o novo componente
 
 export default function AboutPage() {
   return (
@@ -18,23 +19,11 @@ export default function AboutPage() {
           </div>
         </AnimatedSection>
 
-        {/* SEÇÃO MINHA JORNADA ATUALIZADA COM A FOTO */}
         <AnimatedSection className="w-full py-20 lg:py-24">
           <div className="container mx-auto max-w-5xl px-4 grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
-            {/* Coluna da Imagem */}
+            {/* Coluna da Imagem agora usa o novo componente */}
             <div className="md:col-span-2">
-              <Image
-                src="/henrique-ravazzi.jpg"
-                alt="Foto de Henrique Ravazzi, fundador da HRTech"
-                width={400}
-                height={400}
-                className="rounded-lg shadow-2xl shadow-accent/20 object-cover w-full h-auto"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.onerror = null; 
-                  target.src='https://placehold.co/400x400/121212/FFFFFF?text=Henrique+Ravazzi';
-                }}
-              />
+              <ProfileImage />
             </div>
             {/* Coluna do Texto */}
             <div className="md:col-span-3 space-y-6">
