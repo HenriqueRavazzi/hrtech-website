@@ -2,6 +2,7 @@ import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
 import { CheckCircle2, Code2, Network, Home } from 'lucide-react';
+import { AnimatedSection } from '../components/ui/AnimatedSection';
 
 const services = [
   {
@@ -44,28 +45,26 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="bg-dark text-light">
+    <div>
       <Navbar />
       <main className="pt-16">
-        {/* Cabeçalho da Página */}
-        <section className="w-full py-20 lg:py-24 bg-dark/95">
+        <AnimatedSection className="w-full py-20 lg:py-24">
           <div className="container mx-auto max-w-4xl text-center px-4">
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-shadow-lg">
               Soluções de Tecnologia para Desafios Reais
             </h1>
             <p className="text-lg md:text-xl text-light/80 mt-4">
               Descubra como podemos ajudar a sua empresa a inovar ou a sua casa a tornar-se mais inteligente.
             </p>
           </div>
-        </section>
+        </AnimatedSection>
 
-        {/* Seções de Serviço */}
-        <div className="py-20 lg:py-24">
+        <div className="py-10">
           {services.map((service, index) => (
-            <section key={service.title} className={`w-full ${index % 2 === 1 ? 'bg-dark/95' : ''}`}>
+            <AnimatedSection key={service.title} className="w-full">
               <div className="container mx-auto max-w-5xl px-4 py-16">
                 <div className="text-center mb-12">
-                  <service.icon className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <service.icon className="h-12 w-12 text-accent mx-auto mb-4" />
                   <h2 className="text-3xl font-bold text-primary">{service.headline}</h2>
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -74,7 +73,7 @@ export default function ServicesPage() {
                     <p>{service.description}</p>
                   </div>
                   <div>
-                    <Card>
+                    <Card className="transition-all duration-300 ease-in-out hover:shadow-2xl hover:shadow-accent/20">
                       <CardHeader>
                         <CardTitle>O que está incluído:</CardTitle>
                       </CardHeader>
@@ -82,7 +81,7 @@ export default function ServicesPage() {
                         <ul className="space-y-3">
                           {service.includes.map((item) => (
                             <li key={item} className="flex items-center gap-3">
-                              <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
+                              <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0" />
                               <span className="text-light/90">{item}</span>
                             </li>
                           ))}
@@ -92,10 +91,9 @@ export default function ServicesPage() {
                   </div>
                 </div>
               </div>
-            </section>
+            </AnimatedSection>
           ))}
         </div>
-
       </main>
       <Footer />
     </div>
