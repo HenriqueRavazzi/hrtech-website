@@ -29,7 +29,9 @@ body {
 }
 
 .animated-gradient {
-  background: linear-gradient(-45deg, #121212, #1a1a1a, #5E17EB, #121212);
-  background-size: 400% 400%;
+  background: 
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0),
+    linear-gradient(-45deg, #121212, #1a1a1a, #5E17EB, #121212);
+  background-size: 20px 20px, 400% 400%;
   animation: gradient 15s ease infinite;
 }

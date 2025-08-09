@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import textShadow from 'tailwindcss-textshadow';
 
 const config: Config = {
   content: [
@@ -9,7 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#5E17EB",
+        primary: "#5E17EB", // Roxo
+        accent: "#00F5D4",  // Ciano Vibrante
         dark: "#121212",
         light: "#FFFFFF",
         secondary: '#F3F4F6',
@@ -17,19 +19,33 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-league-spartan)", "sans-serif"],
       },
-      // Adicionando keyframes e animação para o gradiente
       keyframes: {
         gradient: {
           '0%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
           '100%': { backgroundPosition: '0% 50%' },
         },
+        fadeIn: {
+          'from': { opacity: '0' },
+          'to': { opacity: '1' },
+        },
+        slideUp: {
+          'from': { transform: 'translateY(20px)' },
+          'to': { transform: 'translateY(0)' },
+        }
       },
       animation: {
         gradient: 'gradient 15s ease infinite',
+        fadeIn: 'fadeIn 1s ease-out forwards',
+        slideUp: 'slideUp 0.5s ease-out forwards',
+      },
+      textShadow: {
+        lg: '0 2px 10px rgba(0, 0, 0, 0.5)',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    textShadow
+  ],
 };
 export default config;
