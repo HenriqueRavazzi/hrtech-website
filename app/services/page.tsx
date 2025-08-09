@@ -8,7 +8,7 @@ import { CtaSection } from '../components/sections/CtaSection'; // Importando a 
 const services = [
     {
         icon: Code2,
-        title: "Desenvolvimento de Software Sob Medida",
+        title: "Desenvolvimento de software sob medida",
         headline: "A sua visão é única. O seu software também deveria ser.",
         description: "No mercado atual, soluções genéricas geram resultados genéricos. Na HRTech, não construímos apenas software; criamos a ferramenta exata que o seu negócio precisa para crescer. Seja uma aplicação web para otimizar os seus processos internos ou um aplicativo mobile para encantar os seus clientes, nós mergulhamos no seu desafio para desenhar, desenvolver e entregar uma solução sob medida, garantindo performance, escalabilidade e uma experiência de utilizador impecável.",
         includes: [
@@ -20,8 +20,8 @@ const services = [
       },
       {
         icon: Network,
-        title: "Consultoria de Tecnologia e Arquitetura",
-        headline: "O seu projeto está a ser construído sobre uma fundação sólida?",
+        title: "Consultoria de tecnologia e arquitetura",
+        headline: "O seu projeto está sendo construído sobre uma fundação sólida?",
         description: "As decisões tecnológicas tomadas hoje definem o sucesso ou o fracasso de amanhã. Atuamos como o seu parceiro estratégico, um arquiteto que garante que a sua 'construção' digital seja sólida. Ajudamos a sua empresa a escolher as tecnologias certas, a desenhar arquiteturas de software preparadas para o futuro (Cloud, DevOps, IaC) e a otimizar os seus custos operacionais, garantindo que o seu investimento em tecnologia traga o máximo retorno.",
         includes: [
           "Desenho de Arquitetura de Nuvem (Azure/AWS)",
@@ -32,8 +32,8 @@ const services = [
       },
       {
         icon: Home,
-        title: "Automação Residencial Inteligente",
-        headline: "Imagine uma casa que trabalha para si.",
+        title: "Automação residencial inteligente",
+        headline: "Imagine uma casa que trabalha para ti.",
         description: "A verdadeira automação vai além de ligar uma luz pelo telemóvel. Trata-se de criar um ecossistema inteligente que se antecipa às suas necessidades. Imagine chegar em casa e a 'Cena Cinema' ser ativada com um toque: as luzes diminuem, as cortinas fecham e a climatização ajusta-se. Imagine sair para viajar e ter a certeza de que a sua casa está segura e a consumir o mínimo de energia. Nós projetamos e implementamos essa realidade, transformando a sua casa num ambiente conectado, seguro e eficiente.",
         includes: [
           "Projetos de Iluminação Inteligente",
@@ -97,7 +97,6 @@ export default function ServicesPage() {
           ))}
         </div>
 
-        {/* Adicionando a CTA global antes do rodapé */}
         <AnimatedSection>
             <CtaSection />
         </AnimatedSection>

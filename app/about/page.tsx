@@ -21,11 +21,9 @@ export default function AboutPage() {
 
         <AnimatedSection className="w-full py-20 lg:py-24">
           <div className="container mx-auto max-w-5xl px-4 grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
-            {/* Coluna da Imagem agora usa o novo componente */}
             <div className="md:col-span-2">
               <ProfileImage />
             </div>
-            {/* Coluna do Texto */}
             <div className="md:col-span-3 space-y-6">
               <h2 className="text-3xl font-bold text-accent">Minha Jornada</h2>
               <div className="text-light/80 space-y-4 text-lg">
