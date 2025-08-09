@@ -1,3 +1,4 @@
+import Image from 'next/image'; // Importando o componente de Imagem do Next.js
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
@@ -17,14 +18,32 @@ export default function AboutPage() {
           </div>
         </AnimatedSection>
 
+        {/* SEÇÃO MINHA JORNADA ATUALIZADA COM A FOTO */}
         <AnimatedSection className="w-full py-20 lg:py-24">
-          <div className="container mx-auto max-w-4xl px-4 grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-            <div className="md:col-span-1 text-center md:text-left">
-                <h2 className="text-3xl font-bold text-accent">Minha Jornada</h2>
+          <div className="container mx-auto max-w-5xl px-4 grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
+            {/* Coluna da Imagem */}
+            <div className="md:col-span-2">
+              <Image
+                src="/henrique-ravazzi.jpg"
+                alt="Foto de Henrique Ravazzi, fundador da HRTech"
+                width={400}
+                height={400}
+                className="rounded-lg shadow-2xl shadow-accent/20 object-cover w-full h-auto"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.onerror = null; 
+                  target.src='https://placehold.co/400x400/121212/FFFFFF?text=Henrique+Ravazzi';
+                }}
+              />
             </div>
-            <div className="md:col-span-2 text-light/80 space-y-4 text-lg">
-              <p>Olá, eu sou Henrique Ravazzi. Minha paixão pela tecnologia não nasceu numa tela, mas no coração da indústria...</p>
-              <p>A HRTech Automation Systems nasceu da união desses dois mundos. Da percepção de que a verdadeira inovação acontece quando entendemos a fundo tanto a engenharia por trás das coisas quanto o software que as controla.</p>
+            {/* Coluna do Texto */}
+            <div className="md:col-span-3 space-y-6">
+              <h2 className="text-3xl font-bold text-accent">Minha Jornada</h2>
+              <div className="text-light/80 space-y-4 text-lg">
+                <p>Olá, eu sou Henrique Ravazzi. Minha paixão pela tecnologia não nasceu numa tela, mas no coração da indústria. Formado em Engenharia de Controle e Automação pela PUC-PR, meu primeiro grande desafio foi no chão de fábrica da Renault, otimizando processos e entendendo como sistemas complexos interagem no mundo real.</p>
+                <p>Essa base sólida me levou ao universo do software, onde atuei em DevOps no Grupo Inlog, garantindo a estabilidade de infraestruturas em nuvem, e depois como desenvolvedor e líder técnico na ExxonMobil, construindo e aprimorando aplicações .NET de grande escala.</p>
+                <p>A HRTech Automation Systems nasceu da união desses dois mundos. Da percepção de que a verdadeira inovação acontece quando entendemos a fundo tanto a engenharia por trás das coisas quanto o software que as controla.</p>
+              </div>
             </div>
           </div>
         </AnimatedSection>
