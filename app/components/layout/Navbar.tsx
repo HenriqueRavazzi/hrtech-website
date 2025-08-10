@@ -5,18 +5,11 @@ import Link from "next/link";
 import { Menu, X, Code } from "lucide-react";
 import { Button } from "../ui/Button";
 
-const navLinks = [
-  { href: "/", label: "Início" },
-  { href: "/about", label: "Sobre" },
-  { href: "/services", label: "Serviços" },
-  { href: "/contact", label: "Contato" },
-];
-
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-lg">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
           <Code className="h-6 w-6 text-primary" />
@@ -24,15 +17,9 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-light/80 transition-colors hover:text-light"
-            >
-              {link.label}
-            </Link>
-          ))}
+            <Link href="/about" className="text-sm font-medium text-light/80 transition-colors hover:text-light">Sobre</Link>
+            <Link href="/services" className="text-sm font-medium text-light/80 transition-colors hover:text-light">Serviços</Link>
+            <Link href="/contact" className="text-sm font-medium text-light/80 transition-colors hover:text-light">Contato</Link>
         </nav>
 
         <div className="hidden md:block">
@@ -54,8 +41,7 @@ export function Navbar() {
       </div>
 
       {isOpen && (
-        // Fundo do menu mobile
-        <div className="md:hidden bg-black/50 backdrop-blur-lg">
+        <div className="md:hidden">
           <nav className="flex flex-col items-center gap-4 px-4 pt-2 pb-4">
             {navLinks.map((link) => (
               <Link
@@ -76,3 +62,10 @@ export function Navbar() {
     </header>
   );
 }
+
+const navLinks = [
+    { href: "/", label: "Início" },
+    { href: "/about", label: "Sobre" },
+    { href: "/services", label: "Serviços" },
+    { href: "/contact", label: "Contato" },
+  ];

@@ -7,9 +7,8 @@ const Card = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    // Fundo semitransparente para criar efeito de profundidade
     className={cn(
-      "rounded-lg border border-white/10 bg-black/30 backdrop-blur-sm text-light shadow-lg",
+      "rounded-lg border border-white/10 bg-dark/50 text-light shadow-lg transition-all duration-300 ease-in-out hover:transform hover:-translate-y-2 hover:shadow-primary/30",
       className
     )}
     {...props}
@@ -36,7 +35,7 @@ const CardTitle = React.forwardRef<
   <h3
     ref={ref}
     className={cn(
-      "text-2xl font-semibold leading-none tracking-tight text-light", // Garante texto branco
+      "text-2xl font-semibold leading-none tracking-tight",
       className
     )}
     {...props}
