@@ -2,30 +2,20 @@
 
 import { useFormState, useFormStatus } from 'react-dom';
 import { sendContactEmail } from '../../lib/actions';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Button } from '../ui/Button';
 import { Input } from '../ui/Input';
 import { Textarea } from '../ui/Textarea';
 import { Loader2, CheckCircle, AlertTriangle } from 'lucide-react';
 
-const initialState = {
-  message: '',
-  error: false,
-};
+const initialState = { message: '', error: false };
 
 function SubmitButton() {
   const { pending } = useFormStatus();
-
   return (
     <Button type="submit" className="w-full" disabled={pending}>
-      {pending ? (
-        <>
-          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          Enviando...
-        </>
-      ) : (
-        'Enviar Mensagem'
-      )}
+      {pending ? (<><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Enviando...</>) : ('Enviar Mensagem')}
     </Button>
   );
 }
@@ -33,12 +23,26 @@ function SubmitButton() {
 export function ContactForm() {
   const [state, formAction] = useFormState(sendContactEmail, initialState);
   const formRef = useRef<HTMLFormElement>(null);
+  
+  const searchParams = useSearchParams();
+  const serviceParam = searchParams.get('service');
+  
+  const prefilledMessage = serviceParam 
+    ? `Olá, tenho interesse no serviço de "${serviceParam}".\n\nGostaria de discutir a minha ideia/necessidade:\n\n`
+    : '';
+
+  const [message, setMessage] = useState(prefilledMessage);
+
+  useEffect(() => {
+    setMessage(prefilledMessage);
+  }, [prefilledMessage]);
 
   useEffect(() => {
     if (state.message && !state.error) {
       formRef.current?.reset();
+      setMessage(prefilledMessage);
     }
-  }, [state]);
+  }, [state, prefilledMessage]);
 
   return (
     <form ref={formRef} action={formAction} className="space-y-6">
@@ -52,7 +56,15 @@ export function ContactForm() {
       </div>
       <div className="space-y-2">
         <label htmlFor="message" className="text-sm font-medium text-light/90">Mensagem</label>
-        <Textarea id="message" name="message" placeholder="Como podemos ajudar?" required rows={5} />
+        <Textarea 
+          id="message" 
+          name="message" 
+          placeholder="Como podemos ajudar?" 
+          required 
+          rows={7}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
       </div>
       
       <SubmitButton />
