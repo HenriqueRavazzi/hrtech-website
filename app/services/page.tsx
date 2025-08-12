@@ -6,30 +6,29 @@ import { Button } from '../components/ui/Button';
 import Link from 'next/link';
 
 const services = [
-    {
-        id: 'dev',
-        icon: Code2,
-        title: "Desenvolvimento de software sob medida",
-        headline: "A sua visão é única. O seu software também deveria ser.",
-        description: "No mercado atual, soluções genéricas geram resultados genéricos. Na HRTech, não construímos apenas software; criamos a ferramenta exata que o seu negócio precisa para crescer...",
-        includes: [ "Aplicações Web e Mobile", "Desenvolvimento de APIs", "Integração de Sistemas", "Modernização de Legado" ],
-    },
-    {
-        id: 'consultoria',
-        icon: Network,
-        title: "Consultoria de tecnologia e arquitetura",
-        headline: "O seu projeto está sendo construído sobre uma fundação sólida?",
-        description: "As decisões tecnológicas tomadas hoje definem o sucesso ou o fracasso de amanhã. Atuamos como o seu parceiro estratégico, um arquiteto que garante que a sua 'construção' digital seja sólida...",
-        includes: [ "Desenho de Arquitetura de Nuvem (Azure/AWS)", "Estratégia DevOps e CI/CD", "Otimização de Performance e Custos (FinOps)", "Mentoria Técnica para Equipas" ],
-    },
-    {
-        id: 'automacao',
-        icon: Home,
-        title: "Automação residencial inteligente",
-        headline: "Imagine uma casa que trabalha para si.",
-        description: "A verdadeira automação vai além de ligar uma luz pelo telemóvel. Trata-se de criar um ecossistema inteligente que se antecipa às suas necessidades...",
-        includes: [ "Projetos de Iluminação Inteligente", "Controlo de Climatização e Cortinas", "Sistemas de Segurança Integrados", "Redes Wi-Fi de Alta Performance" ],
-    },
+  {
+    id: 'automacao',
+    icon: Home,
+    title: "Automação Residencial Inteligente",
+    description: "A verdadeira automação vai além de ligar uma luz pelo telemóvel. Trata-se de criar um ecossistema inteligente que se antecipa às suas necessidades...",
+    includes: [ "Projetos de Iluminação Inteligente", "Controlo de Climatização e Cortinas", "Sistemas de Segurança Integrados", "Redes Wi-Fi de Alta Performance" ],
+  },
+  {
+    id: 'dev',
+    icon: Code2,
+    title: "Desenvolvimento de software sob medida",
+    headline: "A sua visão é única. O seu software também deveria ser.",
+    description: "No mercado atual, soluções genéricas geram resultados genéricos. Na HRTech, não construímos apenas software; criamos a ferramenta exata que o seu negócio precisa para crescer...",
+    includes: [ "Aplicações Web e Mobile", "Desenvolvimento de APIs", "Integração de Sistemas", "Modernização de Legado" ],
+  },
+  {
+    id: 'consultoria',
+    icon: Network,
+    title: "Consultoria de tecnologia e arquitetura",
+    headline: "O seu projeto está sendo construído sobre uma fundação sólida?",
+    description: "As decisões tecnológicas tomadas hoje definem o sucesso ou o fracasso de amanhã. Atuamos como o seu parceiro estratégico, um arquiteto que garante que a sua 'construção' digital seja sólida...",
+    includes: [ "Desenho de Arquitetura de Nuvem (Azure/AWS)", "Estratégia DevOps e CI/CD", "Otimização de Performance e Custos (FinOps)", "Mentoria Técnica para Equipas" ],
+  },
 ];
 
 export default function ServicesPage() {
