@@ -70,7 +70,7 @@ export function ParticleBackground() {
                                  + ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
                   if (distance < (canvas!.width / 7) * (canvas!.height / 7)) {
                       opacityValue = 1 - (distance / 20000);
-                      ctx!.strokeStyle = `rgba(255, 255, 255, ${opacityValue})`;
+                      ctx!.strokeStyle = `rgba(94, 23, 235, ${opacityValue})`;
                       ctx!.lineWidth = 1;
                       ctx!.beginPath();
                       ctx!.moveTo(particles[a].x, particles[a].y);

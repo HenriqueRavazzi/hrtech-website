@@ -4,7 +4,6 @@ import { Footer } from '../components/layout/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
 import { BrainCircuit, HeartHandshake, Shield } from 'lucide-react';
 import { AnimatedSection } from '../components/ui/AnimatedSection';
-import { ProfileImage } from '../components/ui/ProfileImage'; // Importando o novo componente
 
 export default function AboutPage() {
   return (
@@ -21,9 +20,6 @@ export default function AboutPage() {
 
         <AnimatedSection className="w-full py-20 lg:py-24">
           <div className="container mx-auto max-w-5xl px-4 grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
-            <div className="md:col-span-2">
-              <ProfileImage />
-            </div>
             <div className="md:col-span-3 space-y-6">
               <h2 className="text-3xl font-bold text-accent">Minha Jornada</h2>
               <div className="text-light/80 space-y-4 text-lg">
