@@ -5,6 +5,14 @@ import Link from "next/link";
 import { Menu, X, Code } from "lucide-react";
 import { Button } from "../ui/Button";
 
+const navLinks = [
+  { href: "/", label: "Início" },
+  { href: "/about", label: "Sobre" },
+  { href: "/services", label: "Serviços" },
+  { href: "/portfolio", label: "Portfólio" },
+  { href: "/contact", label: "Contato" },
+];
+
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -17,16 +25,16 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
-            <Link href="/about" className="text-sm font-medium text-light/80 transition-colors hover:text-light">Sobre</Link>
-            <Link href="/services" className="text-sm font-medium text-light/80 transition-colors hover:text-light">Serviços</Link>
-            <Link href="/contact" className="text-sm font-medium text-light/80 transition-colors hover:text-light">Contato</Link>
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-sm font-medium text-light/80 transition-colors hover:text-light"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
-
-        <div className="hidden md:block">
-            <Button asChild variant="outline" size="sm">
-                <Link href="/contact">Fale Conosco</Link>
-            </Button>
-        </div>
 
         <div className="md:hidden">
           <Button
@@ -62,10 +70,3 @@ export function Navbar() {
     </header>
   );
 }
-
-const navLinks = [
-    { href: "/", label: "Início" },
-    { href: "/about", label: "Sobre" },
-    { href: "/services", label: "Serviços" },
-    { href: "/contact", label: "Contato" },
-  ];
