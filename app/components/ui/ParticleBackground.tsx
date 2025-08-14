@@ -53,7 +53,7 @@ export function ParticleBackground() {
       let backgroundParticles: Particle[] = [];
       const mouseParticles: Particle[] = [];
       const MAX_MOUSE_PARTICLES = 200;
-      const BACKGROUND_PARTICLES_COUNT = 550;
+      const BACKGROUND_PARTICLES_COUNT = 800;
 
       const init = () => {
         backgroundParticles = [];
