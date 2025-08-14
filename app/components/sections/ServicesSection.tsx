@@ -28,11 +28,9 @@ export function ServicesSection() {
           {services.map((service, index) => (
             <Card 
               key={index}
-              // Animação de hover nos cards
               className="transition-all duration-300 ease-in-out hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/20"
             >
               <CardHeader>
-                {/* Ícone com a nova cor de destaque */}
                 <service.icon className="h-8 w-8 text-accent mb-4" />
                 <CardTitle>{service.title}</CardTitle>
               </CardHeader>

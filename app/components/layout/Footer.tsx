@@ -24,7 +24,6 @@ export function Footer() {
               <Link href="/portfolio" className="text-sm text-light/80 hover:text-light">Portfólio</Link>
             </nav>
             <div className="flex gap-4">
-              {/* Adicionando os atributos data-tooltip-* para ativar os tooltips */}
               <a 
                 href="https://github.com/HenriqueRavazzi" 
                 target="_blank" 

@@ -2,7 +2,6 @@
 
 import { Tooltip } from 'react-tooltip';
 
-// CORRIGIDO: Usando uma exportação nomeada
 export function TooltipProvider() {
   return (
     <Tooltip 
