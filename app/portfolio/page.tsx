@@ -1,10 +1,19 @@
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '../components/ui/Card';
-import { Layers, GitBranch, Construction } from 'lucide-react';
+import { Layers, GitBranch, Construction, Smartphone } from 'lucide-react';
 import { AnimatedSection } from '../components/ui/AnimatedSection';
 
 const projects = [
+  {
+    title: "Desenvolvimento de Produto Mobile (IoT)",
+    client: "Loc Solution (anteriormente Motomco)",
+    category: "Desenvolvimento Mobile & IoT",
+    icon: Smartphone,
+    description: "Idealização e desenvolvimento de um novo produto de software, focado num aplicativo mobile para a gestão de equipamentos em campo, com integração GPS e Bluetooth.",
+    role: "Atuei como desenvolvedor principal na criação do aplicativo em Flutter e da API de suporte em Node.js, participando ativamente na conceção e prototipagem de novas funcionalidades.",
+    technologies: ["Flutter", "Node.js", "AWS", "Bluetooth LE", "GPS"],
+  },
   {
     title: "Liderança Técnica - Plataforma de Talentos",
     client: "ExxonMobil",
@@ -91,7 +100,7 @@ export default function PortfolioPage() {
                   <CardHeader>
                     <div className="flex justify-between items-start">
                       <CardTitle>{project.title}</CardTitle>
-                      <project.icon className="h-8 w-8 text-primary/70 group-hover:text-primary transition-colors duration-300 flex-shrink-0" />
+                      <project.icon className="h-8 w-8 text-primary/70 group-hover:text-primary transition-colors duration-300 flex-shrink-0 ml-4" />
                     </div>
                     <p className="text-sm text-primary font-semibold">{project.client} - {project.category}</p>
                   </CardHeader>
