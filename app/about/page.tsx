@@ -35,6 +35,7 @@ export default function AboutPage() {
                 <div className="text-lg text-light/80 space-y-4">
                     <p>Inspirada no universo urbano, minimalista e consciente, a HRTech nasce com uma premissa bem definida: inovar o cotidiano através da automação.</p>
                     <p>Para nós, combinar estética, funcionalidade e eficiência é só o começo. Criamos experiências marcantes por meio de projetos personalizados que trazem a automação para além dos fios e sistemas.</p>
+                    <p>Acreditamos que a tecnologia deve servir como uma ponte para uma vida com mais propósito. O nosso objetivo é desenhar sistemas que não apenas automatizam tarefas, mas que também aprendem e se adaptam ao seu ritmo, libertando o seu tempo e a sua energia para o que realmente importa.</p>
                 </div>
               </div>
 

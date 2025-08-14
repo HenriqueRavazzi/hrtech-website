@@ -1,13 +1,13 @@
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '../components/ui/Card';
-import { Layers, GitBranch, Construction, Smartphone } from 'lucide-react';
+import { Layers, GitBranch, Smartphone, Lightbulb, Sparkles } from 'lucide-react';
 import { AnimatedSection } from '../components/ui/AnimatedSection';
 
 const projects = [
   {
     title: "Desenvolvimento de Produto Mobile (IoT)",
-    client: "Loc Solution (anteriormente Motomco)",
+    client: "Motomco",
     category: "Desenvolvimento Mobile & IoT",
     icon: Smartphone,
     description: "Idealização e desenvolvimento de um novo produto de software, focado num aplicativo mobile para a gestão de equipamentos em campo, com integração GPS e Bluetooth.",
@@ -42,22 +42,13 @@ const projects = [
     technologies: ["WordPress", "Tray Commerce", "Pipefy", "PHP", "JavaScript"],
   },
   {
-    title: "HRTech Home Hub",
+    title: "Automação de Iluminação Residencial",
     client: "HRTech (Projeto Próprio)",
     category: "Automação & IoT",
-    icon: Construction,
-    description: "Criação de um sistema completo de automação residencial para centralizar o controlo de múltiplos dispositivos IoT numa única interface.",
-    role: "Desenvolvi o aplicativo mobile em Flutter, configurei o servidor gateway em um Raspberry Pi com Python (FastAPI) e implementei a comunicação via MQTT.",
-    technologies: ["Flutter", "Python (FastAPI)", "MQTT", "Raspberry Pi"],
-  },
-  {
-    title: "Gerador de Propostas Inteligente",
-    client: "HRTech (Projeto Próprio)",
-    category: "Desenvolvimento SaaS",
-    icon: GitBranch,
-    description: "Desenvolvimento de um produto de software (SaaS) para freelancers, que permite a criação e o envio de propostas comerciais de forma rápida e automatizada.",
-    role: "Arquitetei e desenvolvi a solução completa, incluindo a API RESTful em Node.js com autenticação JWT, a geração de PDFs e a interface reativa com React.",
-    technologies: ["Node.js", "React", "PostgreSQL", "Prisma", "JWT"],
+    icon: Lightbulb,
+    description: "Sistema de automação para o sistema de iluminação residencial, permitindo controlo total de ligar/apagar, intensidade e cores através de comandos de voz.",
+    role: "Desenvolvimento da integração com assistentes de voz (Google Assistant/Alexa) e da lógica de controlo para a criação de cenas de iluminação personalizadas.",
+    technologies: ["Home Assistant", "Node-RED", "Google Assistant", "Alexa"],
   },
   {
     title: "Engenharia de Plataformas e DevOps",
@@ -121,6 +112,23 @@ export default function PortfolioPage() {
                   </CardFooter>
                 </Card>
               ))}
+
+              <Card className="flex flex-col group overflow-hidden border-dashed border-white/20 hover:border-primary">
+                  <CardHeader>
+                    <div className="flex justify-between items-start">
+                      <CardTitle>Novos Desafios</CardTitle>
+                      <Sparkles className="h-8 w-8 text-primary/70 group-hover:text-primary transition-colors duration-300 flex-shrink-0 ml-4" />
+                    </div>
+                    <p className="text-sm text-primary font-semibold">Inovação Contínua</p>
+                  </CardHeader>
+                  <CardContent className="flex-grow flex items-center justify-center">
+                    <div className="text-center text-light/50">
+                      <p className="font-semibold">Mais projetos em breve...</p>
+                      <p className="text-xs mt-1">Estamos sempre a explorar novas tecnologias e a trabalhar em soluções inovadoras.</p>
+                    </div>
+                  </CardContent>
+              </Card>
+
             </div>
           </div>
         </AnimatedSection>
