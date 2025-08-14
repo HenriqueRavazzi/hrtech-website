@@ -1,7 +1,7 @@
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '../components/ui/Card';
-import { Layers, GitBranch, Smartphone, Lightbulb, Sparkles } from 'lucide-react';
+import { Layers, GitBranch, Smartphone, Lightbulb, Sparkles, Construction } from 'lucide-react';
 import { AnimatedSection } from '../components/ui/AnimatedSection';
 
 const projects = [
@@ -33,6 +33,24 @@ const projects = [
     technologies: ["Java (Spring Boot)", "React", "React Native", "SQL", "AWS"],
   },
   {
+    title: "Engenharia de Plataformas e DevOps",
+    client: "Grupo Inlog",
+    category: "DevOps & Cloud",
+    icon: Layers,
+    description: "Atuação focada em garantir a estabilidade, a segurança e a agilidade da infraestrutura em nuvem para as aplicações da empresa.",
+    role: "Fui responsável pela criação e manutenção de pipelines de CI/CD na Azure DevOps e pela implementação de práticas de Infraestrutura como Código (IaC).",
+    technologies: ["Azure", "Azure DevOps", "CI/CD", "IaC", "Docker"],
+  },
+  {
+    title: "HRTech Home Hub",
+    client: "HRTech (Projeto Próprio)",
+    category: "Automação & IoT",
+    icon: Construction,
+    description: "Criação de um sistema completo de automação residencial para centralizar o controlo de múltiplos dispositivos IoT numa única interface.",
+    role: "Desenvolvi o aplicativo mobile em Flutter, configurei o servidor gateway em um Raspberry Pi com Python (FastAPI) e implementei a comunicação via MQTT.",
+    technologies: ["Flutter", "Python (FastAPI)", "MQTT", "Raspberry Pi"],
+  },
+  {
     title: "Ecossistema Digital Farmacêutico",
     client: "Neuvye Farmacêutica",
     category: "Consultoria e Integração",
@@ -51,14 +69,14 @@ const projects = [
     technologies: ["Home Assistant", "Node-RED", "Google Assistant", "Alexa"],
   },
   {
-    title: "Engenharia de Plataformas e DevOps",
-    client: "Grupo Inlog",
-    category: "DevOps & Cloud",
-    icon: Layers,
-    description: "Atuação focada em garantir a estabilidade, a segurança e a agilidade da infraestrutura em nuvem para as aplicações da empresa.",
-    role: "Fui responsável pela criação e manutenção de pipelines de CI/CD na Azure DevOps e pela implementação de práticas de Infraestrutura como Código (IaC).",
-    technologies: ["Azure", "Azure DevOps", "CI/CD", "IaC", "Docker"],
-  },
+    title: "Gerador de Propostas Inteligente",
+    client: "HRTech (Projeto Próprio)",
+    category: "Desenvolvimento SaaS",
+    icon: GitBranch,
+    description: "Desenvolvimento de um produto de software (SaaS) para freelancers, que permite a criação e o envio de propostas comerciais de forma rápida e automatizada.",
+    role: "Arquitetei e desenvolvi a solução completa, incluindo a API RESTful em Node.js com autenticação JWT, a geração de PDFs e a interface reativa com React.",
+    technologies: ["Node.js", "React", "PostgreSQL", "Prisma", "JWT"],
+  }
 ];
 
 function TechBadge({ children }: { children: React.ReactNode }) {
