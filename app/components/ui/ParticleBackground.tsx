@@ -54,7 +54,7 @@ export function ParticleBackground() {
 
       const init = () => {
           particles = [];
-          const numberOfParticles = (canvas!.height * canvas!.width) / 9000;
+          const numberOfParticles = (canvas!.height * canvas!.width) / 5000; // Aumentado para maior densidade
           for (let i = 0; i < numberOfParticles; i++) {
               const size = Math.random() * 1.5 + 1;
               const x = Math.random() * (canvas!.width - size * 2) + size;
