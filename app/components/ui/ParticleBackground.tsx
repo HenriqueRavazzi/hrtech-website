@@ -12,7 +12,7 @@ export function ParticleBackground() {
     if (canvas && ctx) {
       let particles: Particle[];
       let animationFrameId: number;
-      let mouse = { x: 0, y: 0 };
+      const mouse = { x: 0, y: 0 };
 
       const resizeCanvas = () => {
           canvas.width = window.innerWidth;
