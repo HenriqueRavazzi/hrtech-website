@@ -14,7 +14,7 @@ export function ParticleBackground() {
       let animationFrameId: number;
       const mouse = { x: 0, y: 0 };
       let lastClickTime = 0;
-      const MAX_PARTICLES = 500;
+      const MAX_PARTICLES = 1000;
 
       const resizeCanvas = () => {
           canvas.width = window.innerWidth;
