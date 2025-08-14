@@ -10,11 +10,9 @@ export function ParticleBackground() {
     const ctx = canvas?.getContext('2d');
 
     if (canvas && ctx) {
-      let particles: Particle[];
       let animationFrameId: number;
       const mouse = { x: 0, y: 0 };
       let lastClickTime = 0;
-      const MAX_PARTICLES = 750;
 
       const resizeCanvas = () => {
           canvas.width = window.innerWidth;
@@ -52,33 +50,39 @@ export function ParticleBackground() {
           }
       }
 
+      let backgroundParticles: Particle[] = [];
+      let mouseParticles: Particle[] = [];
+      const MAX_MOUSE_PARTICLES = 200;
+      const BACKGROUND_PARTICLES_COUNT = 550;
+
       const init = () => {
-          particles = [];
-          const numberOfParticles = (canvas!.height * canvas!.width) / 5000; // Aumentado para maior densidade
-          for (let i = 0; i < numberOfParticles; i++) {
-              const size = Math.random() * 1.5 + 1;
-              const x = Math.random() * (canvas!.width - size * 2) + size;
-              const y = Math.random() * (canvas!.height - size * 2) + size;
-              const speedX = (Math.random() * 0.4) - 0.2;
-              const speedY = (Math.random() * 0.4) - 0.2;
-              particles.push(new Particle(x, y, size, speedX, speedY));
-          }
+        backgroundParticles = [];
+        for (let i = 0; i < BACKGROUND_PARTICLES_COUNT; i++) {
+          const size = Math.random() * 1.5 + 1;
+          const x = Math.random() * (canvas!.width - size * 2) + size;
+          const y = Math.random() * (canvas!.height - size * 2) + size;
+          const speedX = Math.random() * 0.4 - 0.2;
+          const speedY = Math.random() * 0.4 - 0.2;
+          backgroundParticles.push(new Particle(x, y, size, speedX, speedY));
+        }
       };
 
       const connect = () => {
         let opacityValue = 1;
-        for (let a = 0; a < particles.length; a++) {
-          for (let b = a; b < particles.length; b++) {
+        const allParticles = [...backgroundParticles, ...mouseParticles];
+
+        for (let a = 0; a < allParticles.length; a++) {
+          for (let b = a; b < allParticles.length; b++) {
             const distance =
-              (particles[a].x - particles[b].x) * (particles[a].x - particles[b].x) +
-              (particles[a].y - particles[b].y) * (particles[a].y - particles[b].y);
+              (allParticles[a].x - allParticles[b].x) * (allParticles[a].x - allParticles[b].x) +
+              (allParticles[a].y - allParticles[b].y) * (allParticles[a].y - allParticles[b].y);
             if (distance < (canvas!.width / 7) * (canvas!.height / 7)) {
               opacityValue = 1 - distance / 20000;
               ctx!.strokeStyle = `rgba(94, 23, 235, ${opacityValue})`;
               ctx!.lineWidth = 1;
               ctx!.beginPath();
-              ctx!.moveTo(particles[a].x, particles[a].y);
-              ctx!.lineTo(particles[b].x, particles[b].y);
+              ctx!.moveTo(allParticles[a].x, allParticles[a].y);
+              ctx!.lineTo(allParticles[b].x, allParticles[b].y);
               ctx!.stroke();
             }
           }
@@ -87,10 +91,19 @@ export function ParticleBackground() {
       
       const animate = () => {
           ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
-          particles.forEach(p => {
-              p.update();
-              p.draw();
+
+          // Atualizar e desenhar partículas de fundo
+          backgroundParticles.forEach((p) => {
+            p.update();
+            p.draw();
           });
+
+          // Atualizar e desenhar partículas geradas pelo mouse
+          mouseParticles.forEach((p) => {
+            p.update();
+            p.draw();
+          });
+
           connect();
           animationFrameId = requestAnimationFrame(animate);
       };
@@ -103,16 +116,16 @@ export function ParticleBackground() {
       const handleMouseMove = (event: MouseEvent) => {
         mouse.x = event.clientX;
         mouse.y = event.clientY;
-        particles.push(new Particle(mouse.x, mouse.y, 3, Math.random() * 2 - 1, Math.random() * 2 - 1));
+        mouseParticles.push(new Particle(mouse.x, mouse.y, 3, Math.random() * 2 - 1, Math.random() * 2 - 1));
       };
 
       const handleClick = () => {
         const now = Date.now();
-        if (now - lastClickTime < 1000) return;
+        if (now - lastClickTime < 500) return; // Cooldown de 500ms
         lastClickTime = now;
 
-        for (let i = 0; i < 7; i++) {
-          particles.push(
+        for (let i = 0; i < 10; i++) { // Adiciona partículas geradas pelo mouse
+          mouseParticles.push(
             new Particle(
               mouse.x,
               mouse.y,
@@ -122,8 +135,10 @@ export function ParticleBackground() {
             )
           );
         }
-        while (particles.length > MAX_PARTICLES) {
-          particles.shift();
+
+        // Remover partículas antigas se ultrapassar o limite
+        while (mouseParticles.length > MAX_MOUSE_PARTICLES) {
+          mouseParticles.shift();
         }
       };
 
