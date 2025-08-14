@@ -21,11 +21,12 @@ export function Footer() {
               <Link href="/about" className="text-sm text-light/80 hover:text-light">Sobre</Link>
               <Link href="/services" className="text-sm text-light/80 hover:text-light">Serviços</Link>
               <Link href="/contact" className="text-sm text-light/80 hover:text-light">Contato</Link>
+              <Link href="/portfolio" className="text-sm text-light/80 hover:text-light">Portfólio</Link>
             </nav>
             <div className="flex gap-4">
               {/* Adicionando os atributos data-tooltip-* para ativar os tooltips */}
               <a 
-                href="https://github.com/seu-usuario" 
+                href="https://github.com/HenriqueRavazzi" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 aria-label="GitHub"
@@ -35,7 +36,7 @@ export function Footer() {
                 <Github className="h-6 w-6 text-light/80 hover:text-accent transition-colors" />
               </a>
               <a 
-                href="https://linkedin.com/in/seu-usuario" 
+                href="https://linkedin.com/in/henrique-ravazzi" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 aria-label="LinkedIn"

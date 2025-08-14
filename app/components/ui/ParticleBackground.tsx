@@ -12,7 +12,8 @@ export function ParticleBackground() {
     if (canvas && ctx) {
       let particles: Particle[];
       let animationFrameId: number;
-      
+      let mouse = { x: 0, y: 0 };
+
       const resizeCanvas = () => {
           canvas.width = window.innerWidth;
           canvas.height = window.innerHeight;
@@ -63,22 +64,23 @@ export function ParticleBackground() {
       };
 
       const connect = () => {
-          let opacityValue = 1;
-          for (let a = 0; a < particles.length; a++) {
-              for (let b = a; b < particles.length; b++) {
-                  const distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x))
-                                 + ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
-                  if (distance < (canvas!.width / 7) * (canvas!.height / 7)) {
-                      opacityValue = 1 - (distance / 20000);
-                      ctx!.strokeStyle = `rgba(94, 23, 235, ${opacityValue})`;
-                      ctx!.lineWidth = 1;
-                      ctx!.beginPath();
-                      ctx!.moveTo(particles[a].x, particles[a].y);
-                      ctx!.lineTo(particles[b].x, particles[b].y);
-                      ctx!.stroke();
-                  }
-              }
+        let opacityValue = 1;
+        for (let a = 0; a < particles.length; a++) {
+          for (let b = a; b < particles.length; b++) {
+            const distance =
+              (particles[a].x - particles[b].x) * (particles[a].x - particles[b].x) +
+              (particles[a].y - particles[b].y) * (particles[a].y - particles[b].y);
+            if (distance < (canvas!.width / 7) * (canvas!.height / 7)) {
+              opacityValue = 1 - distance / 20000;
+              ctx!.strokeStyle = `rgba(94, 23, 235, ${opacityValue})`;
+              ctx!.lineWidth = 1;
+              ctx!.beginPath();
+              ctx!.moveTo(particles[a].x, particles[a].y);
+              ctx!.lineTo(particles[b].x, particles[b].y);
+              ctx!.stroke();
+            }
           }
+        }
       };
       
       const animate = () => {
@@ -95,16 +97,40 @@ export function ParticleBackground() {
           resizeCanvas();
           init();
       };
-      
+
+      const handleMouseMove = (event: MouseEvent) => {
+        mouse.x = event.clientX;
+        mouse.y = event.clientY;
+        particles.push(new Particle(mouse.x, mouse.y, 3, Math.random() * 2 - 1, Math.random() * 2 - 1));
+      };
+
+      const handleClick = () => {
+        for (let i = 0; i < 20; i++) {
+          particles.push(
+            new Particle(
+              mouse.x,
+              mouse.y,
+              Math.random() * 3 + 1,
+              Math.random() * 4 - 2,
+              Math.random() * 4 - 2
+            )
+          );
+        }
+      };
+
       init();
       animate();
 
       window.addEventListener('resize', handleResize);
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('click', handleClick);
 
       return () => {
         window.removeEventListener('resize', handleResize);
+        window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('click', handleClick);
         cancelAnimationFrame(animationFrameId);
-      }
+      };
     }
   }, []);
 
@@ -116,7 +142,7 @@ export function ParticleBackground() {
             top: 0,
             left: 0,
             zIndex: -1,
-            backgroundColor: '#121212'
+            backgroundColor: '#121212',
         }}
     />
   );
