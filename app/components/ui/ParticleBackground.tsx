@@ -13,6 +13,8 @@ export function ParticleBackground() {
       let particles: Particle[];
       let animationFrameId: number;
       const mouse = { x: 0, y: 0 };
+      let lastClickTime = 0;
+      const MAX_PARTICLES = 500;
 
       const resizeCanvas = () => {
           canvas.width = window.innerWidth;
@@ -105,7 +107,11 @@ export function ParticleBackground() {
       };
 
       const handleClick = () => {
-        for (let i = 0; i < 20; i++) {
+        const now = Date.now();
+        if (now - lastClickTime < 1000) return;
+        lastClickTime = now;
+
+        for (let i = 0; i < 7; i++) {
           particles.push(
             new Particle(
               mouse.x,
@@ -115,6 +121,9 @@ export function ParticleBackground() {
               Math.random() * 4 - 2
             )
           );
+        }
+        while (particles.length > MAX_PARTICLES) {
+          particles.shift();
         }
       };
 
