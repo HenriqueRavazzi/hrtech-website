@@ -52,12 +52,17 @@ export function ParticleBackground() {
 
       let backgroundParticles: Particle[] = [];
       const mouseParticles: Particle[] = [];
-      const MAX_MOUSE_PARTICLES = 200;
-      const BACKGROUND_PARTICLES_COUNT = 800;
+      
+      let MAX_MOUSE_PARTICLES = 100;
+      const DESKTOP_PARTICLES_COUNT = 800;
+      const MOBILE_PARTICLES_COUNT = 100;
 
       const init = () => {
+        const isMobile = window.innerWidth < 768;
+        MAX_MOUSE_PARTICLES = isMobile ? 50 : 100;
+        const particleCount = isMobile ? MOBILE_PARTICLES_COUNT : DESKTOP_PARTICLES_COUNT;
         backgroundParticles = [];
-        for (let i = 0; i < BACKGROUND_PARTICLES_COUNT; i++) {
+        for (let i = 0; i < particleCount; i++) {
           const size = Math.random() * 1.5 + 1;
           const x = Math.random() * (canvas!.width - size * 2) + size;
           const y = Math.random() * (canvas!.height - size * 2) + size;
@@ -70,13 +75,15 @@ export function ParticleBackground() {
       const connect = () => {
         let opacityValue = 1;
         const allParticles = [...backgroundParticles, ...mouseParticles];
+        const isMobile = window.innerWidth < 768;
+        const connectionDistance = isMobile ? (canvas!.width / 5) * (canvas!.height / 5) : (canvas!.width / 7) * (canvas!.height / 7);
 
         for (let a = 0; a < allParticles.length; a++) {
           for (let b = a; b < allParticles.length; b++) {
             const distance =
               (allParticles[a].x - allParticles[b].x) * (allParticles[a].x - allParticles[b].x) +
               (allParticles[a].y - allParticles[b].y) * (allParticles[a].y - allParticles[b].y);
-            if (distance < (canvas!.width / 7) * (canvas!.height / 7)) {
+            if (distance < connectionDistance) {
               opacityValue = 1 - distance / 20000;
               ctx!.strokeStyle = `rgba(94, 23, 235, ${opacityValue})`;
               ctx!.lineWidth = 1;
@@ -113,7 +120,12 @@ export function ParticleBackground() {
           init();
       };
 
+      let lastMouseMoveTime = 0;
       const handleMouseMove = (event: MouseEvent) => {
+        const now = Date.now();
+        if (now - lastMouseMoveTime < 50) return;
+        lastMouseMoveTime = now;
+
         mouse.x = event.clientX;
         mouse.y = event.clientY;
         mouseParticles.push(new Particle(mouse.x, mouse.y, 3, Math.random() * 2 - 1, Math.random() * 2 - 1));
@@ -123,8 +135,11 @@ export function ParticleBackground() {
         const now = Date.now();
         if (now - lastClickTime < 500) return; // Cooldown de 500ms
         lastClickTime = now;
+        
+        const isMobile = window.innerWidth < 768;
+        const particlesToPush = isMobile ? 5 : 10;
 
-        for (let i = 0; i < 10; i++) { // Adiciona partículas geradas pelo mouse
+        for (let i = 0; i < particlesToPush; i++) {
           mouseParticles.push(
             new Particle(
               mouse.x,
