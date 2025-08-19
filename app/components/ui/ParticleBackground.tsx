@@ -54,8 +54,8 @@ export function ParticleBackground() {
       const mouseParticles: Particle[] = [];
       
       let MAX_MOUSE_PARTICLES = 100;
-      const DESKTOP_PARTICLES_COUNT = 800;
-      const MOBILE_PARTICLES_COUNT = 100;
+      const DESKTOP_PARTICLES_COUNT = 500;
+      const MOBILE_PARTICLES_COUNT = 75;
 
       const init = () => {
         const isMobile = window.innerWidth < 768;
