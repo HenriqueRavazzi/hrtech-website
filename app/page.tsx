@@ -5,10 +5,11 @@ import { ServicesSection } from '../app/components/sections/ServicesSection';
 import { AboutSection } from '../app/components/sections/AboutSection';
 import { AnimatedSection } from '../app/components/ui/AnimatedSection';
 import { CtaSection } from '../app/components/sections/CtaSection';
+import { ScrollingPortfolio } from '../app/components/sections/ScrollingPortfolio';
 
 export default function HomePage() {
   return (
-    <div>
+    <div className="bg-dark">
       <Navbar />
       <main>
         <HeroSection />
@@ -16,7 +17,12 @@ export default function HomePage() {
         <AnimatedSection>
           <ServicesSection />
         </AnimatedSection>
-        
+
+        {/* Adicionando a nova vitrine de portfólio em scroll */}
+        <AnimatedSection>
+          <ScrollingPortfolio />
+        </AnimatedSection>
+
         <AnimatedSection>
           <AboutSection />
         </AnimatedSection>

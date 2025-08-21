@@ -32,12 +32,17 @@ const config: Config = {
         slideUp: {
           'from': { transform: 'translateY(20px)' },
           'to': { transform: 'translateY(0)' },
-        }
+        },
+        'scroll-up': {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(-50%)' },
+        },
       },
       animation: {
         gradient: 'gradient 15s ease infinite',
         fadeIn: 'fadeIn 1s ease-out forwards',
         slideUp: 'slideUp 0.5s ease-out forwards',
+        'scroll-up': `scroll-up 40s linear infinite`,
       },
       textShadow: {
         lg: '0 2px 10px rgba(0, 0, 0, 0.5)',
