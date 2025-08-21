@@ -6,7 +6,11 @@ import { Button } from '../../components/ui/Button';
 import Link from 'next/link';
 import { AnimatedSection } from '../../components/ui/AnimatedSection';
 
-// Componente para as tags de tecnologia
+type Props = {
+  params: { slug: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+};
+
 function TechBadge({ children }: { children: React.ReactNode }) {
   return (
     <span className="inline-block bg-primary/20 text-primary text-xs font-bold mr-2 mb-2 px-2.5 py-0.5 rounded-full">
@@ -15,7 +19,7 @@ function TechBadge({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
+export default function ProjectDetailPage({ params }: Props) {
   const project = projects.find((p) => p.slug === params.slug);
 
   if (!project) {
