@@ -1,10 +1,15 @@
+"use client";
+
+import { useState } from 'react';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '../components/ui/Card';
 import { AnimatedSection } from '../components/ui/AnimatedSection';
 import { projects } from '../lib/projects-data'; // Importando os dados centralizados
-import Link from 'next/link';
 import { Sparkles } from 'lucide-react';
+import { ProjectDetailModal } from '../components/ui/ProjectDetailModal';
+
+type Project = (typeof projects)[0];
 
 // Componente para as tags de tecnologia
 function TechBadge({ children }: { children: React.ReactNode }) {
@@ -16,6 +21,8 @@ function TechBadge({ children }: { children: React.ReactNode }) {
 }
 
 export default function PortfolioPage() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
   return (
     <div className="bg-dark">
       <Navbar />
@@ -33,31 +40,28 @@ export default function PortfolioPage() {
           <div className="container mx-auto max-w-6xl px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project) => (
-                // Envolvendo o Card com o Link para a página de detalhe
-                <Link href={`/portfolio/${project.slug}`} key={project.slug} legacyBehavior>
-                  <a className="block h-full transition-transform duration-300 ease-in-out hover:scale-105">
-                    <Card className="flex flex-col group overflow-hidden h-full">
-                      <CardHeader>
-                        <div className="flex justify-between items-start">
-                          <CardTitle>{project.title}</CardTitle>
-                          <project.icon className="h-8 w-8 text-primary/70 group-hover:text-primary transition-colors duration-300 flex-shrink-0 ml-4" />
+                <div key={project.slug} onClick={() => setSelectedProject(project)} className="cursor-pointer h-full">
+                  <Card className="flex flex-col group overflow-hidden h-full transition-transform duration-300 ease-in-out hover:scale-105">
+                    <CardHeader>
+                      <div className="flex justify-between items-start">
+                        <CardTitle>{project.title}</CardTitle>
+                        <project.icon className="h-8 w-8 text-primary/70 group-hover:text-primary transition-colors duration-300 flex-shrink-0 ml-4" />
+                      </div>
+                      <p className="text-sm text-primary font-semibold">{project.client} - {project.category}</p>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                      <p className="text-sm text-light/70 mb-4">{project.description}</p>
+                    </CardContent>
+                    <CardFooter>
+                      <div className="w-full">
+                        <h4 className="text-sm font-bold mb-2">Tecnologias:</h4>
+                        <div className="flex flex-wrap">
+                          {project.technologies.map(tech => <TechBadge key={tech}>{tech}</TechBadge>)}
                         </div>
-                        <p className="text-sm text-primary font-semibold">{project.client} - {project.category}</p>
-                      </CardHeader>
-                      <CardContent className="flex-grow">
-                        <p className="text-sm text-light/70 mb-4">{project.description}</p>
-                      </CardContent>
-                      <CardFooter>
-                        <div className="w-full">
-                          <h4 className="text-sm font-bold mb-2">Tecnologias:</h4>
-                          <div className="flex flex-wrap">
-                            {project.technologies.map(tech => <TechBadge key={tech}>{tech}</TechBadge>)}
-                          </div>
-                        </div>
-                      </CardFooter>
-                    </Card>
-                  </a>
-                </Link>
+                      </div>
+                    </CardFooter>
+                  </Card>
+                </div>
               ))}
               {/* Card de "Em Breve" */}
               <Card className="flex flex-col group overflow-hidden border-dashed border-white/20 hover:border-primary">
@@ -81,6 +85,7 @@ export default function PortfolioPage() {
         </AnimatedSection>
       </main>
       <Footer />
+      <ProjectDetailModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </div>
   );
 }
