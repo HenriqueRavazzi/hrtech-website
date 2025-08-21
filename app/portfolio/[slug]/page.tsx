@@ -6,10 +6,6 @@ import { Button } from '../../components/ui/Button';
 import Link from 'next/link';
 import { AnimatedSection } from '../../components/ui/AnimatedSection';
 
-type Props = {
-  params: { slug: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
-};
 
 function TechBadge({ children }: { children: React.ReactNode }) {
   return (
@@ -19,7 +15,7 @@ function TechBadge({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function ProjectDetailPage({ params }: Props) {
+export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
   const project = projects.find((p) => p.slug === params.slug);
 
   if (!project) {
@@ -88,7 +84,6 @@ export default function ProjectDetailPage({ params }: Props) {
   );
 }
 
-// Função para gerar as páginas estáticas no momento do build (bom para SEO e performance)
 export async function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.slug,
