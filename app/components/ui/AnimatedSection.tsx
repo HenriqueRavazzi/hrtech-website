@@ -1,17 +1,10 @@
 "use client";
 
-import React, { Suspense, lazy } from "react";
+import React, { Suspense } from "react";
+import { motion } from "framer-motion";
 
-// Lazy loading do framer-motion para melhor performance
-const MotionSection = lazy(() => 
-  import("framer-motion").then(mod => ({
-    default: ({ children, className, ...props }: any) => (
-      <mod.motion.section {...props} className={className}>
-        {children}
-      </mod.motion.section>
-    )
-  }))
-);
+// Componente simplificado sem lazy loading para evitar problemas de tipagem
+const MotionSection = motion.section;
 
 interface AnimatedSectionProps {
   children: React.ReactNode;

@@ -3,7 +3,7 @@
 import React from 'react';
 import { X } from 'lucide-react';
 import { projects } from '../../lib/projects-data';
-import { Card, CardHeader, CardTitle } from './Card';
+import { CardTitle } from './Card';
 import { useRouter } from 'next/navigation';
 
 interface ProjectModalProps {

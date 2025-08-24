@@ -1,4 +1,4 @@
-import { Layers, GitBranch, Smartphone, Lightbulb, Construction } from 'lucide-react';
+import { Layers, GitBranch, Smartphone } from 'lucide-react';
 
 // Centralizando os dados dos projetos para reutilização
 export const projects = [

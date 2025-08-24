@@ -1,45 +1,23 @@
 "use client";
 
-import { Suspense, lazy, ComponentType } from "react";
+import React, { Suspense } from "react";
 import { LucideProps } from "lucide-react";
+import * as LucideIcons from "lucide-react";
+
+// Função para obter ícone
+const getIcon = (iconName: string): React.ComponentType<LucideProps> => {
+  const IconComponent = (LucideIcons as unknown as Record<string, React.ComponentType<LucideProps>>)[iconName];
+  return IconComponent || LucideIcons.AlertCircle;
+};
 
 interface LazyIconProps extends LucideProps {
   name: string;
-  fallback?: ComponentType<LucideProps>;
+  fallback?: React.ComponentType<LucideProps>;
 }
 
-// Cache para ícones já carregados
-const iconCache = new Map<string, ComponentType<LucideProps>>();
-
 export function LazyIcon({ name, fallback, ...props }: LazyIconProps) {
-  // Verifica se o ícone já está no cache
-  if (iconCache.has(name)) {
-    const CachedIcon = iconCache.get(name)!;
-    return <CachedIcon {...props} />;
-  }
-
-  // Carrega o ícone dinamicamente
-  const DynamicIcon = lazy(async () => {
-    try {
-      const module = await import("lucide-react");
-      const IconComponent = (module as any)[name];
-      
-      if (!IconComponent) {
-        throw new Error(`Icon ${name} not found`);
-      }
-      
-      // Adiciona ao cache
-      iconCache.set(name, IconComponent);
-      
-      return { default: IconComponent };
-    } catch (error) {
-      console.warn(`Failed to load icon: ${name}`, error);
-      // Retorna um ícone padrão em caso de erro
-      const { Circle } = await import("lucide-react");
-      return { default: Circle };
-    }
-  });
-
+  const IconComponent = getIcon(name);
+  
   const FallbackIcon = fallback || (() => (
     <div 
       className={`inline-block bg-gray-300 rounded ${props.className}`}
@@ -49,29 +27,16 @@ export function LazyIcon({ name, fallback, ...props }: LazyIconProps) {
 
   return (
     <Suspense fallback={<FallbackIcon {...props} />}>
-      <DynamicIcon {...props} />
+      <IconComponent {...props} />
     </Suspense>
   );
 }
 
-// Hook para precarregar ícones específicos
+// Hook para precarregar ícones específicos (simplificado)
 export function usePreloadIcons(iconNames: string[]) {
   const preloadIcons = async () => {
-    const promises = iconNames.map(async (name) => {
-      if (!iconCache.has(name)) {
-        try {
-          const module = await import("lucide-react");
-          const IconComponent = (module as any)[name];
-          if (IconComponent) {
-            iconCache.set(name, IconComponent);
-          }
-        } catch (error) {
-          console.warn(`Failed to preload icon: ${name}`, error);
-        }
-      }
-    });
-    
-    await Promise.all(promises);
+    // Ícones já estão carregados estaticamente, não precisa precarregar
+    console.log(`Icons ${iconNames.join(', ')} are ready to use`);
   };
 
   return preloadIcons;
