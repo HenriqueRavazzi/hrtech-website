@@ -37,8 +37,10 @@ export default function ServicesPage() {
       <Navbar />
       <main className="pt-24 pb-12">
         <section className="container mx-auto max-w-5xl px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">Nossos Serviços</h1>
-          <p className="text-lg text-light/80 text-center mb-16">Soluções de tecnologia pensadas para os seus desafios.</p>
+          <Card className="bg-dark/60 backdrop-blur-md border-white/10 p-8 mb-16 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Nossos Serviços</h1>
+            <p className="text-lg text-light/80">Soluções de tecnologia pensadas para os seus desafios.</p>
+          </Card>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => (
