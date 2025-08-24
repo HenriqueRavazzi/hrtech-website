@@ -21,19 +21,17 @@ export function ScrollingPortfolio() {
       <div className="relative h-[600px] w-full overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
         <div className="animate-scroll-up absolute left-0 top-0 flex w-full flex-col gap-4">
           {duplicatedProjects.map((project, index) => (
-            <Link href={`/portfolio/${project.slug}`} key={index} legacyBehavior>
-              <a className="block w-full">
-                <Card className="group flex cursor-pointer items-center justify-between p-4 transition-all duration-300 ease-in-out hover:bg-primary/10 hover:border-primary">
-                  <div className="flex items-center gap-4">
-                    <project.icon className="h-8 w-8 text-primary flex-shrink-0" />
-                    <div>
-                      <CardTitle className="text-lg">{project.title}</CardTitle>
-                      <p className="text-sm text-light/70">{project.client}</p>
-                    </div>
+            <Link href={`/portfolio/${project.slug}`} key={index} className="block w-full">
+              <Card className="group flex cursor-pointer items-center justify-between p-4 transition-all duration-300 ease-in-out hover:bg-primary/10 hover:border-primary">
+                <div className="flex items-center gap-4">
+                  <project.icon className="h-8 w-8 text-primary flex-shrink-0" />
+                  <div>
+                    <CardTitle className="text-lg">{project.title}</CardTitle>
+                    <p className="text-sm text-light/70">{project.client}</p>
                   </div>
-                  <ArrowUpRight className="h-6 w-6 text-light/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                </Card>
-              </a>
+                </div>
+                <ArrowUpRight className="h-6 w-6 text-light/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              </Card>
             </Link>
           ))}
         </div>

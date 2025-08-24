@@ -26,8 +26,11 @@ export function ContactForm() {
   
   const searchParams = useSearchParams();
   const serviceParam = searchParams.get('service');
+  const messageParam = searchParams.get('message');
   
-  const prefilledMessage = serviceParam 
+  const prefilledMessage = messageParam 
+    ? decodeURIComponent(messageParam)
+    : serviceParam 
     ? `Olá, tenho interesse no serviço de "${serviceParam}".\n\nGostaria de discutir a minha ideia/necessidade:\n\n`
     : '';
 
