@@ -5,13 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Button } from "../ui/Button";
+import { ServicesDropdown } from "../ui/ServicesDropdown";
+import { MobileServicesDropdown } from "../ui/MobileServicesDropdown";
 
 const navLinks = [
-  { href: "/", label: "Início" },
   { href: "/about", label: "Sobre" },
-  { href: "/automacao-residencial", label: "Automação Residencial" },
-  { href: "/desenvolvimento-software", label: "Desenvolvimento" },
-  { href: "/consultoria-tecnologias", label: "Consultoria" },
   { href: "/orcamento", label: "Orçamento" },
   { href: "/contact", label: "Contato" },
 ];
@@ -32,16 +30,23 @@ export function Navbar() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-6 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-light/80 transition-colors hover:text-light"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-8 md:flex">
+          <Link
+            href="/about"
+            className="font-medium tracking-wider text-light/70 transition-colors hover:text-purple-400 focus:text-purple-400 focus:outline-none font-sans text-base">
+            Sobre
+          </Link>
+          <ServicesDropdown />
+          <Link
+            href="/orcamento"
+            className="font-medium tracking-wider text-light/70 transition-colors hover:text-purple-400 focus:text-purple-400 focus:outline-none font-sans text-base">
+            Orçamento
+          </Link>
+          <Link
+            href="/contact"
+            className="font-medium tracking-wider text-light/70 transition-colors hover:text-purple-400 focus:text-purple-400 focus:outline-none font-sans text-base">
+            Contato
+          </Link>
         </nav>
 
         <div className="md:hidden">
@@ -59,18 +64,24 @@ export function Navbar() {
       {isOpen && (
         <div className="md:hidden">
           <nav className="flex flex-col items-center gap-4 px-4 pt-2 pb-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="w-full rounded-md py-2 text-center text-base font-medium text-light/80 transition-colors hover:bg-white/10 hover:text-light"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
+            <Link
+              href="/about"
+              className="w-full rounded-md py-3 text-center text-base font-medium tracking-wider text-light/80 transition-colors hover:bg-purple-900/50 hover:text-light focus:bg-purple-900/50 focus:text-light focus:outline-none font-sans">
+              Sobre
+            </Link>
+            <MobileServicesDropdown onItemClick={() => setIsOpen(false)} />
+            <Link
+              href="/orcamento"
+              className="w-full rounded-md py-3 text-center text-base font-medium tracking-wider text-light/80 transition-colors hover:bg-purple-900/50 hover:text-light focus:bg-purple-900/50 focus:text-light focus:outline-none font-sans">
+              Orçamento
+            </Link>
+            <Link
+              href="/contact"
+              className="w-full rounded-md py-3 text-center text-base font-medium tracking-wider text-light/80 transition-colors hover:bg-purple-900/50 hover:text-light focus:bg-purple-900/50 focus:text-light focus:outline-none font-sans">
+              Contato
+            </Link>
             <Button asChild variant="primary" className="w-full mt-2">
-                <Link href="/contact" onClick={() => setIsOpen(false)}>Fale Conosco</Link>
+              <Link href="/contact" onClick={() => setIsOpen(false)}>Fale Conosco</Link>
             </Button>
           </nav>
         </div>
