@@ -3,7 +3,7 @@ import { Code, Github, Linkedin } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-dark/50 border-t border-white/10">
+    <footer className="bg-black border-t border-white/10">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col items-center md:items-start gap-4">
@@ -21,7 +21,6 @@ export function Footer() {
               <Link href="/about" className="text-sm text-light/80 hover:text-light">Sobre</Link>
               <Link href="/services" className="text-sm text-light/80 hover:text-light">Serviços</Link>
               <Link href="/contact" className="text-sm text-light/80 hover:text-light">Contato</Link>
-              <Link href="/portfolio" className="text-sm text-light/80 hover:text-light">Portfólio</Link>
             </nav>
             <div className="flex gap-4">
               <a 

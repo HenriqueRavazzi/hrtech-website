@@ -38,3 +38,88 @@ body {
     linear-gradient(135deg, #000 0%, #5E17EB 100%);
   background-size: 20px 20px, 100% 100%;
 }
+
+/* Otimizações de performance para animações */
+.animate-scroll-up-smooth {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  animation: scrollUp 15s linear infinite;
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+/* Suporte ao line-clamp */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Smooth scrolling para melhor UX */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Otimização para reduzir motion para usuários sensíveis */
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll-up-smooth {
+    animation-duration: 120s !important;
+  }
+}
+
+/* Estilos customizados para scrollbar do painel de projetos */
+.projects-scroll-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.projects-scroll-container::-webkit-scrollbar-track {
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 3px;
+}
+
+.projects-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.4);
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.projects-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.6);
+}
+
+/* Transições suaves para mudança de modo */
+.scroll-mode-transition {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Indicador de modo scroll */
+.scroll-indicator {
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}

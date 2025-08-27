@@ -8,8 +8,9 @@ import { Button } from "../ui/Button";
 const navLinks = [
   { href: "/", label: "Início" },
   { href: "/about", label: "Sobre" },
-  { href: "/services", label: "Serviços" },
-  { href: "/portfolio", label: "Portfólio" },
+  { href: "/automacao-residencial", label: "Automação Residencial" },
+  { href: "/desenvolvimento-software", label: "Desenvolvimento" },
+  { href: "/consultoria-tecnologias", label: "Consultoria" },
   { href: "/orcamento", label: "Orçamento" },
   { href: "/contact", label: "Contato" },
 ];
@@ -18,7 +19,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-black">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
           <Code className="h-6 w-6 text-primary" />

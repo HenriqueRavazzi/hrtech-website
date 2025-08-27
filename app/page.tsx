@@ -8,15 +8,16 @@ import { CtaSection } from '../app/components/sections/CtaSection';
 
 export default function HomePage() {
   return (
-    <div>
+    <div className="bg-dark relative">
       <Navbar />
+      
       <main>
         <HeroSection />
 
         <AnimatedSection>
           <ServicesSection />
         </AnimatedSection>
-        
+
         <AnimatedSection>
           <AboutSection />
         </AnimatedSection>
@@ -25,6 +26,7 @@ export default function HomePage() {
           <CtaSection />
         </AnimatedSection>
       </main>
+      
       <Footer />
     </div>
   );
