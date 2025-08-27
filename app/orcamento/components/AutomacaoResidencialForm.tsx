@@ -1,11 +1,22 @@
 import React from 'react';
 
-const AutomacaoResidencialForm = () => {
+interface AutomacaoResidencialFormData {
+  automacaoTipo?: string;
+  cidadeBairro?: string;
+  objetivoPrincipal?: string;
+}
+
+interface AutomacaoResidencialFormProps {
+  formData: AutomacaoResidencialFormData;
+  onFormChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => void;
+}
+
+const AutomacaoResidencialForm: React.FC<AutomacaoResidencialFormProps> = ({ formData, onFormChange }) => {
   return (
     <>
       <div className="mb-6">
         <label htmlFor="automacaoTipo" className="block text-lg font-medium mb-2">O que deseja automatizar?</label>
-        <select id="automacaoTipo" className="w-full p-3 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <select id="automacaoTipo" name="automacaoTipo" value={formData.automacaoTipo || ''} onChange={onFormChange} className="w-full p-3 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
           <option value="" disabled>Selecione o que deseja automatizar</option>
           <option value="comodo">Cômodo</option>
           <option value="casa">Casa</option>
@@ -18,11 +29,11 @@ const AutomacaoResidencialForm = () => {
       </div>
       <div className="mb-6">
         <label htmlFor="cidadeBairro" className="block text-lg font-medium mb-2">Cidade e bairro onde mora</label>
-        <input type="text" id="cidadeBairro" className="w-full p-3 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <input type="text" id="cidadeBairro" name="cidadeBairro" value={formData.cidadeBairro || ''} onChange={onFormChange} className="w-full p-3 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
       </div>
       <div className="mb-6">
         <label htmlFor="objetivoPrincipal" className="block text-lg font-medium mb-2">Qual seu objetivo principal?</label>
-        <select id="objetivoPrincipal" className="w-full p-3 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <select id="objetivoPrincipal" name="objetivoPrincipal" value={formData.objetivoPrincipal || ''} onChange={onFormChange} className="w-full p-3 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
           <option value="" disabled>Selecione seu objetivo</option>
           <option value="seguranca">Segurança</option>
           <option value="conforto">Conforto</option>
