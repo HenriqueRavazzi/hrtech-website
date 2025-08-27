@@ -13,12 +13,12 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black">
-      <div className="container mx-auto flex h-22 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/images/logo-roxo.png"
             alt="HRTech Logo"
-            width={80}
+            width={72}
             height={40}
             className="bg-transparent"
           />
@@ -64,19 +64,16 @@ export function Navbar() {
               Sobre
             </Link>
             <MobileServicesDropdown onItemClick={() => setIsOpen(false)} />
-            <Link
+            {/* <Link
               href="/orcamento"
               className="w-full rounded-md py-3 text-center text-base font-medium tracking-wider text-light/80 transition-colors hover:bg-purple-900/50 hover:text-light focus:bg-purple-900/50 focus:text-light focus:outline-none font-sans">
               Orçamento
-            </Link>
+            </Link> */}
             <Link
               href="/contact"
               className="w-full rounded-md py-3 text-center text-base font-medium tracking-wider text-light/80 transition-colors hover:bg-purple-900/50 hover:text-light focus:bg-purple-900/50 focus:text-light focus:outline-none font-sans">
               Contato
             </Link>
-            <Button asChild variant="primary" className="w-full mt-2">
-              <Link href="/contact" onClick={() => setIsOpen(false)}>Fale Conosco</Link>
-            </Button>
           </nav>
         </div>
       )}
