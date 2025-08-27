@@ -8,12 +8,6 @@ import { Button } from "../ui/Button";
 import { ServicesDropdown } from "../ui/ServicesDropdown";
 import { MobileServicesDropdown } from "../ui/MobileServicesDropdown";
 
-const navLinks = [
-  { href: "/about", label: "Sobre" },
-  { href: "/orcamento", label: "Orçamento" },
-  { href: "/contact", label: "Contato" },
-];
-
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -37,11 +31,11 @@ export function Navbar() {
             Sobre
           </Link>
           <ServicesDropdown />
-          <Link
+          {/* <Link
             href="/orcamento"
             className="font-medium tracking-wider text-light/70 transition-colors hover:text-purple-400 focus:text-purple-400 focus:outline-none font-sans text-base">
             Orçamento
-          </Link>
+          </Link> */}
           <Link
             href="/contact"
             className="font-medium tracking-wider text-light/70 transition-colors hover:text-purple-400 focus:text-purple-400 focus:outline-none font-sans text-base">

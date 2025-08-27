@@ -4,11 +4,6 @@ import * as React from "react";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 
-type ServiceItem = {
-  href: string;
-  label: string;
-};
-
 const serviceItems = [
   { href: "/automacao-residencial", label: "Automação Residencial" },
   { href: "/desenvolvimento-software", label: "Desenvolvimento de Sistemas" },
