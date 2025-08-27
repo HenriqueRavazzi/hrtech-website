@@ -2,7 +2,8 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Menu, X, Code } from "lucide-react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 import { Button } from "../ui/Button";
 
 const navLinks = [
@@ -20,10 +21,15 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black">
-      <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto flex h-22 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
-          <Code className="h-6 w-6 text-primary" />
-          <span className="text-xl font-bold text-light">HRTech</span>
+          <Image
+            src="/images/logo-roxo.png"
+            alt="HRTech Logo"
+            width={80}
+            height={40}
+            className="bg-transparent"
+          />
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">

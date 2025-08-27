@@ -16,6 +16,9 @@ const leagueSpartan = League_Spartan({
 export const metadata: Metadata = {
   title: "HRTech Automation Systems",
   description: "Uma nova experiência em tecnologia e automação.",
+  icons: {
+    icon: "/images/logo-roxo.png",
+  },
 };
 
 export default function RootLayout({
