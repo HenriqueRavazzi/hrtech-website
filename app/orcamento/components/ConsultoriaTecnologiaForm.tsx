@@ -1,4 +1,5 @@
 import React from 'react';
+import { Textarea } from '../../components/ui/Textarea';
 
 interface ConsultoriaTecnologiaFormData {
   tipoConsultoria?: string;
@@ -13,9 +14,15 @@ interface ConsultoriaTecnologiaFormProps {
 const ConsultoriaTecnologiaForm: React.FC<ConsultoriaTecnologiaFormProps> = ({ formData, onFormChange }) => {
   return (
     <>
-      <div className="mb-6">
-        <label htmlFor="tipoConsultoria" className="block text-lg font-medium mb-2">Tipo de consultoria</label>
-        <select id="tipoConsultoria" name="tipoConsultoria" value={formData.tipoConsultoria || ''} onChange={onFormChange} className="w-full p-3 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <div className="space-y-2">
+        <label htmlFor="tipoConsultoria" className="text-sm font-medium text-light/90">Tipo de consultoria</label>
+        <select 
+          id="tipoConsultoria" 
+          name="tipoConsultoria" 
+          value={formData.tipoConsultoria || ''} 
+          onChange={onFormChange} 
+          className="flex h-10 w-full rounded-md border border-light/20 bg-purple-900/80 px-3 py-2 text-sm text-light ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+        >
           <option value="" disabled>Selecione o tipo de consultoria</option>
           <option value="sitesPlataformas">Sites em Plataformas (Wix/WordPress)</option>
           <option value="ecommerces">E-commerces (Tray/Yampi/etc)</option>
@@ -23,9 +30,16 @@ const ConsultoriaTecnologiaForm: React.FC<ConsultoriaTecnologiaFormProps> = ({ f
           <option value="duvidasAutomacao">Dúvidas sobre Automação</option>
         </select>
       </div>
-      <div className="mb-6">
-        <label htmlFor="descricaoDuvidas" className="block text-lg font-medium mb-2">Conte-nos sobre seu site/projeto e suas principais dúvidas</label>
-        <textarea id="descricaoDuvidas" name="descricaoDuvidas" value={formData.descricaoDuvidas || ''} onChange={onFormChange} rows={4} className="w-full p-3 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+      <div className="space-y-2">
+        <label htmlFor="descricaoDuvidas" className="text-sm font-medium text-light/90">Conte-nos sobre seu site/projeto e suas principais dúvidas</label>
+        <Textarea 
+          id="descricaoDuvidas" 
+          name="descricaoDuvidas" 
+          value={formData.descricaoDuvidas || ''} 
+          onChange={onFormChange} 
+          rows={4} 
+          placeholder="Descreva seu site/projeto e as dúvidas que você tem"
+        />
       </div>
     </>
   );
