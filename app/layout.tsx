@@ -3,6 +3,7 @@ import { League_Spartan } from "next/font/google";
 import "./globals.css";
 import { ParticleBackground } from "./components/ui/ParticleBackground";
 import { TooltipProvider } from "./components/ui/TooltipProvider";
+import WhatsAppButton from "./components/ui/WhatsAppButton";
 
 const leagueSpartan = League_Spartan({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className={`${leagueSpartan.variable} font-sans bg-transparent text-light`}>
         <ParticleBackground />
         {children}
+        <WhatsAppButton />
         <TooltipProvider />
       </body>
     </html>
