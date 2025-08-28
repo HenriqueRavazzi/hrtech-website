@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Sitemap declaration
+Sitemap: https://hrtechnologies.com.br/sitemap.xml
+Sitemap: https://www.hrtechnologies.com.br/sitemap.xml
+Sitemap: https://hrtech-website.vercel.app/sitemap.xml

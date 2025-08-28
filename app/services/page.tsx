@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '../compone
 import { CheckCircle2, Code2, Network, Home } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import Link from 'next/link';
+import Script from 'next/script';
 
 const services = [
   {
@@ -34,6 +35,49 @@ const services = [
 export default function ServicesPage() {
   return (
     <div className="bg-dark">
+      <Script
+        id="schema-services"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": services.map((service, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "item": {
+                "@type": "Service",
+                "name": service.title,
+                "description": service.description,
+                "provider": {
+                  "@type": "Organization",
+                  "name": "HRTech Automation Systems",
+                  "url": "https://hrtechnologies.com.br"
+                },
+                "url": `https://hrtechnologies.com.br/${service.id === 'dev' ? 'desenvolvimento-software' : service.id === 'consultoria' ? 'consultoria-tecnologias' : 'automacao-residencial'}`
+              }
+            }))
+          })
+        }}
+      />
+      <Script
+        id="schema-webpage-services"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Serviços | HRTech Automation Systems",
+            "description": "Conheça nossos serviços de desenvolvimento de software, consultoria tecnológica e automação residencial.",
+            "url": "https://hrtechnologies.com.br/services",
+            "isPartOf": {
+              "@type": "WebSite",
+              "name": "HRTech Automation Systems",
+              "url": "https://hrtechnologies.com.br"
+            }
+          })
+        }}
+      />
       <Navbar />
       <main className="pt-24 pb-12">
         <section className="container mx-auto max-w-5xl px-4">

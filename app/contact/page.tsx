@@ -5,10 +5,38 @@ import { ContactForm } from '../components/sections/ContactForm';
 import { Mail } from 'lucide-react';
 import { AnimatedSection } from '../components/ui/AnimatedSection';
 import { Card } from '../components/ui/Card';
+import Script from 'next/script';
 
 export default function ContactPage() {
   return (
     <div>
+      <Script
+        id="schema-contact"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contato | HRTech Automation Systems",
+            "description": "Entre em contato com a HRTech Automation Systems para discutir seu projeto ou tirar dúvidas sobre nossos serviços.",
+            "url": "https://hrtechnologies.com.br/contact",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "HRTech Automation Systems",
+              "telephone": "+5511999999999",
+              "email": "contato@hrtechnologies.com.br",
+              "url": "https://hrtechnologies.com.br",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+5511999999999",
+                "contactType": "customer service",
+                "availableLanguage": ["Portuguese", "English"],
+                "contactOption": "TollFree"
+              }
+            }
+          })
+        }}
+      />
       <Navbar />
       <main className="pt-16">
         <Suspense fallback={<div>Carregando...</div>}>

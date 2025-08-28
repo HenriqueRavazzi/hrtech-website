@@ -3,10 +3,37 @@ import { Footer } from '../components/layout/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
 import { BrainCircuit, HeartHandshake, Shield } from 'lucide-react';
 import { AnimatedSection } from '../components/ui/AnimatedSection';
+import Script from 'next/script';
 
 export default function AboutPage() {
   return (
     <div className="bg-dark">
+      <Script
+        id="schema-about"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "name": "Sobre a HRTech | HRTech Automation Systems",
+            "description": "Conheça a história, valores e missão da HRTech Automation Systems, especialista em desenvolvimento de software e automação.",
+            "url": "https://hrtechnologies.com.br/about",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "HRTech Automation Systems",
+              "url": "https://hrtechnologies.com.br",
+              "foundingDate": "2020",
+              "description": "A HRTech Automation Systems nasceu da união entre engenharia industrial e desenvolvimento de software, combinando experiência prática em automação com expertise em tecnologias modernas.",
+              "knowsAbout": [
+                "Desenvolvimento de Software",
+                "Automação Residencial",
+                "Consultoria Tecnológica",
+                "Arquitetura de Sistemas"
+              ]
+            }
+          })
+        }}
+      />
       <Navbar />
       <main className="pt-24 pb-12">
         <AnimatedSection>
