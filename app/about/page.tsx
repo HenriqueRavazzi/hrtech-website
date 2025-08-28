@@ -122,19 +122,27 @@ export default function AboutPage() {
                   <div className="space-y-3">
                     <div className="p-4 bg-dark/40 rounded-lg">
                       <h4 className="font-semibold text-light">ExxonMobil</h4>
-                      <p className="text-sm text-light/70">Desenvolvimento e liderança técnica em aplicações .NET de grande escala</p>
-                    </div>
-                    <div className="p-4 bg-dark/40 rounded-lg">
-                      <h4 className="font-semibold text-light">KIS Solutions</h4>
-                      <p className="text-sm text-light/70">Soluções personalizadas de software e automação</p>
-                    </div>
-                    <div className="p-4 bg-dark/40 rounded-lg">
-                      <h4 className="font-semibold text-light">Neuvye</h4>
-                      <p className="text-sm text-light/70">Consultoria em tecnologias e arquiteturas de sistemas</p>
+                      <p className="text-sm text-light/70">Desenvolvimento e liderança técnica em aplicações .NET de grande escala.</p>
                     </div>
                     <div className="p-4 bg-dark/40 rounded-lg">
                       <h4 className="font-semibold text-light">LOC Solutions</h4>
-                      <p className="text-sm text-light/70">Desenvolvimento de aplicações corporativas</p>
+                      <p className="text-sm text-light/70">Desenvolvimento de soluções mobile e web corporativas.</p>
+                    </div>
+                    <div className="p-4 bg-dark/40 rounded-lg">
+                      <h4 className="font-semibold text-light">Renault</h4>
+                      <p className="text-sm text-light/70">Automação industrial para facilitar trabalho dos operadores de linha.</p>
+                    </div>
+                    <div className="p-4 bg-dark/40 rounded-lg">
+                      <h4 className="font-semibold text-light">Grupo Inlog</h4>
+                      <p className="text-sm text-light/70">Desenvolvimento DevOps e manutenção de sistemas.</p>
+                    </div>
+                    <div className="p-4 bg-dark/40 rounded-lg">
+                      <h4 className="font-semibold text-light">KIS Solutions</h4>
+                      <p className="text-sm text-light/70">Soluções personalizadas de software e automação para sistema de Leilões online.</p>
+                    </div>
+                    <div className="p-4 bg-dark/40 rounded-lg">
+                      <h4 className="font-semibold text-light">Neuvye</h4>
+                      <p className="text-sm text-light/70">Consultoria em tecnologias e arquiteturas de sistemas.</p>
                     </div>
                   </div>
                 </CardContent>
