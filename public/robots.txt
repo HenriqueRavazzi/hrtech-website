@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+
+# Crawl delay para evitar sobrecarga do servidor
+Crawl-delay: 1
 
 # Sitemap declaration
 Sitemap: https://hrtechnologies.com.br/sitemap.xml
