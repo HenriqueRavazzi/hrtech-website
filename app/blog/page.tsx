@@ -1,6 +1,22 @@
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
 import { Briefcase } from 'lucide-react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Blog | HRTech Automation Systems",
+  description: "Acompanhe nosso blog para ficar por dentro das últimas novidades em automação residencial, desenvolvimento de software e tendências tecnológicas.",
+  keywords: ["blog", "artigos", "novidades", "tecnologia", "automação", "desenvolvimento de software", "tendências", "inovação"],
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    title: "Blog | HRTech Automation Systems",
+    description: "Acompanhe nosso blog para ficar por dentro das últimas novidades em automação residencial, desenvolvimento de software e tendências tecnológicas.",
+    url: "/blog",
+    type: "website",
+  },
+};
 
 export default function PortfolioPage() {
   return (

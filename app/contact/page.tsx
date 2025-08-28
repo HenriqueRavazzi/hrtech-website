@@ -6,6 +6,22 @@ import { Mail } from 'lucide-react';
 import { AnimatedSection } from '../components/ui/AnimatedSection';
 import { Card } from '../components/ui/Card';
 import Script from 'next/script';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Entre em Contato | HRTech Automation Systems",
+  description: "Entre em contato com a HRTech Automation Systems para discutir seu projeto, solicitar um orçamento ou tirar dúvidas sobre nossos serviços de automação e desenvolvimento.",
+  keywords: ["contato", "orçamento", "projeto", "automação", "desenvolvimento de software", "consultoria tecnológica", "atendimento"],
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Entre em Contato | HRTech Automation Systems",
+    description: "Entre em contato com a HRTech Automation Systems para discutir seu projeto, solicitar um orçamento ou tirar dúvidas sobre nossos serviços.",
+    url: "/contact",
+    type: "website",
+  },
+};
 
 export default function ContactPage() {
   return (

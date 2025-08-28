@@ -6,6 +6,22 @@ import { AboutSection } from '../app/components/sections/AboutSection';
 import { AnimatedSection } from '../app/components/ui/AnimatedSection';
 import { CtaSection } from '../app/components/sections/CtaSection';
 import Script from 'next/script';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "HRTech Automation Systems | Tecnologia que Simplifica, Automação que Liberta",
+  description: "Soluções inovadoras de desenvolvimento de software, automação residencial e consultoria tecnológica para transformar sua empresa ou residência com tecnologia de ponta.",
+  keywords: ["automação", "desenvolvimento de software", "consultoria tecnológica", "casa inteligente", "sistemas personalizados", "inovação tecnológica"],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "HRTech Automation Systems | Tecnologia que Simplifica, Automação que Liberta",
+    description: "Soluções inovadoras de desenvolvimento de software, automação residencial e consultoria tecnológica para transformar sua empresa ou residência.",
+    url: "/",
+    type: "website",
+  },
+};
 
 export default function HomePage() {
   return (

@@ -5,6 +5,22 @@ import { Home, Smartphone, Shield, Zap, Thermometer, Camera } from 'lucide-react
 import { AnimatedSection } from '../components/ui/AnimatedSection';
 import { Button } from '../components/ui/Button';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Automação Residencial | HRTech Automation Systems",
+  description: "Transforme sua casa em um ambiente inteligente com nossas soluções de automação residencial. Iluminação, segurança, climatização e entretenimento integrados para máximo conforto e eficiência.",
+  keywords: ["automação residencial", "casa inteligente", "smart home", "iluminação inteligente", "segurança residencial", "climatização automatizada", "controle por voz", "eficiência energética"],
+  alternates: {
+    canonical: "/automacao-residencial",
+  },
+  openGraph: {
+    title: "Automação Residencial | HRTech Automation Systems",
+    description: "Transforme sua casa em um ambiente inteligente com nossas soluções de automação residencial. Iluminação, segurança, climatização e entretenimento integrados.",
+    url: "/automacao-residencial",
+    type: "website",
+  },
+};
 
 export default function AutomacaoResidencialPage() {
   return (

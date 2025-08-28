@@ -8,6 +8,22 @@ import { AnimatedSection } from '../components/ui/AnimatedSection';
 import { projects } from '../lib/projects-data'; // Importando os dados centralizados
 import { Sparkles } from 'lucide-react';
 import { ProjectDetailModal } from '../components/ui/ProjectDetailModal';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Portfólio | HRTech Automation Systems",
+  description: "Conheça nossos projetos de sucesso em automação residencial, desenvolvimento de software e consultoria tecnológica. Veja como transformamos desafios em soluções.",
+  keywords: ["portfólio", "projetos", "casos de sucesso", "automação", "desenvolvimento de software", "consultoria tecnológica", "soluções tecnológicas"],
+  alternates: {
+    canonical: "/portfolio",
+  },
+  openGraph: {
+    title: "Portfólio | HRTech Automation Systems",
+    description: "Conheça nossos projetos de sucesso em automação residencial, desenvolvimento de software e consultoria tecnológica.",
+    url: "/portfolio",
+    type: "website",
+  },
+};
 
 type Project = (typeof projects)[0];
 

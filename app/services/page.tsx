@@ -5,6 +5,22 @@ import { CheckCircle2, Code2, Network, Home } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import Link from 'next/link';
 import Script from 'next/script';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Nossos Serviços | HRTech Automation Systems",
+  description: "Conheça nossos serviços especializados em automação residencial, desenvolvimento de software sob medida e consultoria tecnológica para transformar sua empresa ou residência.",
+  keywords: ["automação residencial", "desenvolvimento de software sob medida", "consultoria tecnológica", "serviços de tecnologia", "casa inteligente", "software personalizado"],
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: "Nossos Serviços | HRTech Automation Systems",
+    description: "Conheça nossos serviços especializados em automação residencial, desenvolvimento de software sob medida e consultoria tecnológica.",
+    url: "/services",
+    type: "website",
+  },
+};
 
 const services = [
   {

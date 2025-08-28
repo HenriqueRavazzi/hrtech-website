@@ -5,6 +5,22 @@ import { Target, TrendingUp, Shield, Users, Lightbulb, BarChart } from 'lucide-r
 import { AnimatedSection } from '../components/ui/AnimatedSection';
 import { Button } from '../components/ui/Button';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Consultoria Tecnológica | HRTech Automation Systems",
+  description: "Consultoria especializada em tecnologia, arquitetura de sistemas e transformação digital. Orientamos empresas na tomada de decisões estratégicas para soluções eficientes e sustentáveis.",
+  keywords: ["consultoria tecnológica", "arquitetura de sistemas", "transformação digital", "estratégia tecnológica", "cloud computing", "segurança cibernética", "DevOps", "FinOps"],
+  alternates: {
+    canonical: "/consultoria-tecnologias",
+  },
+  openGraph: {
+    title: "Consultoria Tecnológica | HRTech Automation Systems",
+    description: "Consultoria especializada em tecnologia, arquitetura de sistemas e transformação digital. Orientamos empresas na tomada de decisões estratégicas.",
+    url: "/consultoria-tecnologias",
+    type: "website",
+  },
+};
 
 export default function ConsultoriaTecnologiasPage() {
   return (

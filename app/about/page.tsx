@@ -4,6 +4,22 @@ import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card'
 import { BrainCircuit, HeartHandshake, Shield } from 'lucide-react';
 import { AnimatedSection } from '../components/ui/AnimatedSection';
 import Script from 'next/script';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Sobre Nós | HRTech Automation Systems",
+  description: "Conheça a história, valores e missão da HRTech Automation Systems. Nascemos da união entre engenharia industrial e desenvolvimento de software para criar soluções inovadoras.",
+  keywords: ["sobre nós", "história da empresa", "valores", "missão", "visão", "equipe", "experiência", "automação", "desenvolvimento de software"],
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "Sobre Nós | HRTech Automation Systems",
+    description: "Conheça a história, valores e missão da HRTech Automation Systems. Nascemos da união entre engenharia industrial e desenvolvimento de software.",
+    url: "/about",
+    type: "website",
+  },
+};
 
 export default function AboutPage() {
   return (

@@ -5,6 +5,22 @@ import { Code, Database, Cloud, Smartphone, Globe, Cog } from 'lucide-react';
 import { AnimatedSection } from '../components/ui/AnimatedSection';
 import { Button } from '../components/ui/Button';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Desenvolvimento de Software | HRTech Automation Systems",
+  description: "Soluções de software sob medida para empresas que buscam inovação. Desenvolvemos aplicações web, mobile, APIs e sistemas complexos que impulsionam o crescimento do seu negócio.",
+  keywords: ["desenvolvimento de software", "aplicações web", "aplicativos mobile", "APIs", "sistemas personalizados", "integração de sistemas", "modernização de legado", "software sob medida"],
+  alternates: {
+    canonical: "/desenvolvimento-software",
+  },
+  openGraph: {
+    title: "Desenvolvimento de Software | HRTech Automation Systems",
+    description: "Soluções de software sob medida para empresas que buscam inovação. Desenvolvemos aplicações web, mobile, APIs e sistemas complexos.",
+    url: "/desenvolvimento-software",
+    type: "website",
+  },
+};
 
 export default function DesenvolvimentoSoftwarePage() {
   return (
