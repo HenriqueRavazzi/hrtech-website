@@ -3,6 +3,8 @@ import { Footer } from '../components/layout/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
 import { Target, TrendingUp, Shield, Users, Lightbulb, BarChart } from 'lucide-react';
 import { AnimatedSection } from '../components/ui/AnimatedSection';
+import { Button } from '../components/ui/Button';
+import Link from 'next/link';
 
 export default function ConsultoriaTecnologiasPage() {
   return (
@@ -240,6 +242,20 @@ export default function ConsultoriaTecnologiasPage() {
                   </div>
                 </div>
               </CardContent>
+            </Card>
+          </div>
+        </AnimatedSection>
+        
+        <AnimatedSection>
+          <div className="container mx-auto max-w-4xl px-4 mt-16 text-center">
+            <Card className="bg-dark/60 backdrop-blur-md border-white/10 p-8">
+              <h3 className="text-2xl font-bold text-primary mb-6">Eleve sua estratégia tecnológica</h3>
+              <p className="text-light/70 mb-8">Entre em contato conosco para discutir como nossa consultoria pode ajudar a otimizar seus processos e infraestrutura tecnológica.</p>
+              <Button asChild className="px-8 py-6 text-lg" variant="contact">
+                <Link href={`/contact?message=${encodeURIComponent("Olá, tenho interesse no serviço de consultoria de tecnologias. Gostaria de discutir como podemos melhorar nossa infraestrutura tecnológica e receber um orçamento detalhado.")}`}>
+                  Entre em contato
+                </Link>
+              </Button>
             </Card>
           </div>
         </AnimatedSection>

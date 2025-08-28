@@ -3,6 +3,8 @@ import { Footer } from '../components/layout/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
 import { Home, Smartphone, Shield, Zap, Thermometer, Camera } from 'lucide-react';
 import { AnimatedSection } from '../components/ui/AnimatedSection';
+import { Button } from '../components/ui/Button';
+import Link from 'next/link';
 
 export default function AutomacaoResidencialPage() {
   return (
@@ -156,6 +158,20 @@ export default function AutomacaoResidencialPage() {
                   </div>
                 </div>
               </CardContent>
+            </Card>
+          </div>
+        </AnimatedSection>
+        
+        <AnimatedSection>
+          <div className="container mx-auto max-w-4xl px-4 mt-16 text-center">
+            <Card className="bg-dark/60 backdrop-blur-md border-white/10 p-8">
+              <h3 className="text-2xl font-bold text-primary mb-6">Transforme sua casa em um ambiente inteligente</h3>
+              <p className="text-light/70 mb-8">Entre em contato conosco para discutir suas necessidades de automação residencial e receber um orçamento personalizado.</p>
+              <Button asChild className="px-8 py-6 text-lg" variant="contact">
+                <Link href={`/contact?message=${encodeURIComponent("Olá, tenho interesse no serviço de automação residencial. Gostaria de discutir as possibilidades para minha casa e receber um orçamento detalhado.")}`}>
+                  Entre em contato
+                </Link>
+              </Button>
             </Card>
           </div>
         </AnimatedSection>
