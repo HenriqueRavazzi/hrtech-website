@@ -61,7 +61,7 @@ export default function ServicesPage() {
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button asChild className="w-full" variant="outline">
+                  <Button asChild className="w-full" variant="contact">
                     <Link href={`/contact?service=${encodeURIComponent(service.title)}`}>
                       Quero um Orçamento
                     </Link>

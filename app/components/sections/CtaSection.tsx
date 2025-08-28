@@ -12,7 +12,7 @@ export function CtaSection() {
           <p className="text-lg text-light/80 mb-8 max-w-2xl mx-auto">
             Seja um projeto de software, uma necessidade de automação ou um desafio de arquitetura, estou pronto para ouvir e ajudar a construir a solução.
           </p>
-          <Button asChild size="lg" variant="primary">
+          <Button asChild size="lg" variant="contact">
             <Link href="/contact">Fale Comigo</Link>
           </Button>
         </div>
