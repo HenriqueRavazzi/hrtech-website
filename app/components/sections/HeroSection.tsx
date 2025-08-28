@@ -7,10 +7,10 @@ export function HeroSection() {
     <section className="relative w-full h-screen flex items-center justify-center text-light">
       <div className="container relative z-10 mx-auto max-w-4xl text-center px-4">
         <Card className="bg-dark/60 backdrop-blur-md border-white/10 p-8 lg:p-12">
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4">
-            Tecnologia que simplifica, automação que liberta.
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 hero-title">
+            Tecnologia que Simplifica, Automação que Liberta
           </h1>
-          <p className="text-lg md:text-xl text-light/80 mb-8">
+          <p className="text-lg md:text-xl text-light/80 mb-8 hero-description">
             Nós acreditamos na união do cotidiano à tecnologia. Na otimização de processos que te presenteia com mais segurança, conforto e foco para o que realmente importa. Viver de maneira inteligente é o que separa o bom do extraordinário. Bem-vindo à HRTech Automation Systems.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

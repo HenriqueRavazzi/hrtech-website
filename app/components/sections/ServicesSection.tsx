@@ -23,7 +23,7 @@ export function ServicesSection() {
   return (
     <div className="w-full py-20 lg:py-32 text-light">
       <div className="container mx-auto max-w-5xl text-center px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12">Soluções Pensadas para o Seu Desafio</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 services-title">Soluções Pensadas para o Seu Desafio</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <Card 
