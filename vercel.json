@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.hrtechnologies.com.br"
+        }
+      ],
+      "destination": "https://hrtechnologies.com.br/:path*",
+      "permanent": true
+    }
+  ]
+}
