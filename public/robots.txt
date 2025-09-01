@@ -1,11 +1,5 @@
 User-agent: *
-Allow: /
 Disallow: /api/
-
-# Crawl delay para evitar sobrecarga do servidor
-Crawl-delay: 1
 
 # Sitemap declaration
 Sitemap: https://hrtechnologies.com.br/sitemap.xml
-Sitemap: https://www.hrtechnologies.com.br/sitemap.xml
-Sitemap: https://hrtech-website.vercel.app/sitemap.xml
