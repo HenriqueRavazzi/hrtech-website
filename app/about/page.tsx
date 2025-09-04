@@ -8,14 +8,14 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "Sobre Nós | HRTech Automation Systems",
-  description: "Conheça a história, valores e missão da HRTech Automation Systems. Nascemos da união entre engenharia industrial e desenvolvimento de software para criar soluções inovadoras.",
-  keywords: ["sobre nós", "história da empresa", "valores", "missão", "visão", "equipe", "experiência", "automação", "desenvolvimento de software"],
+  description: "Conheça a história, valores, missão e Henrique Ravazzi, fundador da HRTech Automation Systems. Combinamos experiência em automação industrial e desenvolvimento de software para criar soluções inovadoras.",
+  keywords: ["sobre nós", "história da empresa", "valores", "missão", "visão", "equipe", "experiência", "automação", "desenvolvimento de software", "Henrique Ravazzi", "fundador", "engenheiro de software", "DevOps", "automação residencial", "automação industrial"],
   alternates: {
     canonical: "/about",
   },
   openGraph: {
     title: "Sobre Nós | HRTech Automation Systems",
-    description: "Conheça a história, valores e missão da HRTech Automation Systems. Nascemos da união entre engenharia industrial e desenvolvimento de software.",
+    description: "Conheça a história, valores, missão e Henrique Ravazzi, fundador da HRTech Automation Systems. Descubra como combinamos automação industrial e desenvolvimento de software para criar soluções inovadoras.",
     url: "/about",
     type: "website",
   },
@@ -32,7 +32,7 @@ export default function AboutPage() {
             "@context": "https://schema.org",
             "@type": "AboutPage",
             "name": "Sobre a HRTech | HRTech Automation Systems",
-            "description": "Conheça a história, valores e missão da HRTech Automation Systems, especialista em desenvolvimento de software e automação.",
+            "description": "Conheça a história, valores, missão e Henrique Ravazzi, fundador da HRTech Automation Systems, especialista em desenvolvimento de software e automação.",
             "url": "https://hrtechnologies.com.br/about",
             "mainEntity": {
               "@type": "Organization",
@@ -45,7 +45,26 @@ export default function AboutPage() {
                 "Automação Residencial",
                 "Consultoria Tecnológica",
                 "Arquitetura de Sistemas"
-              ]
+              ],
+              "founder": {
+                "@type": "Person",
+                "name": "Henrique Ravazzi",
+                "description": "Engenheiro de Software Sénior e Empreendedor de Tecnologia com experiência em automação industrial e residencial, e arquitetura de software em nuvem. Trabalhou em empresas como ExxonMobil e Renault, desenvolvendo soluções tecnológicas eficientes e escaláveis.",
+                "knowsAbout": [
+                  "Automação Residencial",
+                  "Automação Industrial",
+                  "Engenharia de Software",
+                  "Arquitetura Cloud",
+                  "DevOps",
+                  "Infraestrutura como Código",
+                  "Sistemas de Controle"
+                ],
+                "jobTitle": "Engenheiro de Software Sénior",
+                "alumniOf": [
+                  "ExxonMobil",
+                  "Renault"
+                ]
+              }
             }
           })
         }}
@@ -116,6 +135,27 @@ export default function AboutPage() {
         </AnimatedSection>
         
         <AnimatedSection>
+          <div className="container mx-auto max-w-6xl px-4 mt-24">
+            <Card className="bg-dark/60 backdrop-blur-md">
+              <CardHeader>
+                <CardTitle className="text-3xl font-bold text-primary">Nosso Fundador</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-lg text-light/80">
+                  Fundador da HRTech, Henrique Ravazzi é um Engenheiro de Software Sénior e Empreendedor de Tecnologia com uma carreira forjada na interseção entre o mundo da automação — da industrial à residencial — e a arquitetura de software em nuvem. Com passagens por gigantes globais como ExxonMobil e Renault, ele traduz desafios de negócio complexos em soluções tecnológicas eficientes e escaláveis.
+                </p>
+                <p className="text-lg text-light/80">
+                  Sua expertise abrange o ciclo de vida completo de produtos digitais, desde a liderança técnica de equipas de back-end globais (.NET) até a criação de produtos mobile com integração IoT (Flutter, Node.js), a tecnologia central da automação residencial moderna. É especialista em Cloud & DevOps, com vasta experiência na gestão de infraestrutura como código (IaC) e na automação de pipelines de CI/CD em ambientes Azure e AWS.
+                </p>
+                <p className="text-lg text-light/80">
+                  A HRTech nasceu da sua visão de unir a precisão da engenharia com a inovação do software. O objetivo é trazer essa experiência de nível global para dentro de casa, criando soluções de automação residencial que são robustas, intuitivas e que transformam positivamente a experiência dos nossos clientes com a tecnologia no dia a dia.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </AnimatedSection>
+        
+        <AnimatedSection>
           <div className="container mx-auto max-w-5xl text-center px-4 mt-24">
             <Card className="bg-dark/60 backdrop-blur-md mb-12">
               <CardHeader>
@@ -172,20 +212,20 @@ export default function AboutPage() {
                       <p className="text-sm text-light/70">Desenvolvimento de soluções mobile e web corporativas.</p>
                     </div>
                     <div className="p-4 bg-dark/40 rounded-lg">
-                      <h4 className="font-semibold text-light">Renault</h4>
-                      <p className="text-sm text-light/70">Automação industrial para facilitar trabalho dos operadores de linha.</p>
-                    </div>
-                    <div className="p-4 bg-dark/40 rounded-lg">
-                      <h4 className="font-semibold text-light">Grupo Inlog</h4>
-                      <p className="text-sm text-light/70">Desenvolvimento DevOps e manutenção de sistemas.</p>
-                    </div>
-                    <div className="p-4 bg-dark/40 rounded-lg">
                       <h4 className="font-semibold text-light">KIS Solutions</h4>
                       <p className="text-sm text-light/70">Soluções personalizadas de software e automação para sistema de Leilões online.</p>
                     </div>
                     <div className="p-4 bg-dark/40 rounded-lg">
                       <h4 className="font-semibold text-light">Neuvye</h4>
                       <p className="text-sm text-light/70">Consultoria em tecnologias e arquiteturas de sistemas.</p>
+                    </div>
+                    <div className="p-4 bg-dark/40 rounded-lg">
+                      <h4 className="font-semibold text-light">Renault</h4>
+                      <p className="text-sm text-light/70">Automação industrial para facilitar trabalho dos operadores de linha.</p>
+                    </div>
+                    <div className="p-4 bg-dark/40 rounded-lg">
+                      <h4 className="font-semibold text-light">Grupo Inlog</h4>
+                      <p className="text-sm text-light/70">Desenvolvimento DevOps e manutenção de sistemas.</p>
                     </div>
                   </div>
                 </CardContent>
